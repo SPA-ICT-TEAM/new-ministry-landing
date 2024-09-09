@@ -1,27 +1,25 @@
-import ButtonGradient from "./assets/svg/ButtonGradient";
-import Benefits from "./components/Benefits";
-import Faq from "./components/Faq";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Roadmap from "./components/Roadmap";
-import Services from "./components/Services";
+import HomePage from "./pages/HomePage";
+import Footer from "./components/Footer";
+import { UserProvider } from "./UserContext";
+import { DomainProvider } from "./DomainContext";
 
 const App = () => {
   return (
-    <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header />
-        <Hero />
-        <Roadmap />
-        <Benefits />
-        <Services />
-        <Faq/>
-        <Footer />
-      </div>
-
-      <ButtonGradient />
-    </>
+    <DomainProvider>
+      <UserProvider>
+        <Router>
+          <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+            <Header />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </UserProvider>
+    </DomainProvider>
   );
 };
 
