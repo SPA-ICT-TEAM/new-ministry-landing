@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 lg:bg-green-600 lg:backdrop-blur-sm ${
+      className={`fixed top-0 left-0 w-full z-50 lg:bg-green-700/90 lg:backdrop-blur ${
         openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
       }`}
     >
@@ -67,7 +67,7 @@ const Header = () => {
           <HamburgerMenu />
         </nav>
 
-        <Button className="hidden lg:flex text-green-600" href="#login">
+        <Button className="hidden lg:flex text-green-700 bg-white" href="#login">
           Login
         </Button>
 
