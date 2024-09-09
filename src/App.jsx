@@ -1,28 +1,28 @@
-import ButtonGradient from "./assets/svg/ButtonGradient";
-import Benefits from "./components/Benefits";
-import Collaboration from "./components/Collaboration";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Pricing from "./components/Pricing";
-import Roadmap from "./components/Roadmap";
-import Services from "./components/Services";
+import { Home } from "./Pages/Home";
+import { About } from "./Pages/About"; 
+import ButtonGradient from "./assets/svg/ButtonGradient";
+import { OurServices} from "./Pages/OurServices/OurServices";
+import { Eservices } from "./Pages/Eservicess";
+import { Projects } from "./Pages/Projects/Projects";
+import { ContactUs } from "./Pages/ContactUs";
 
 const App = () => {
   return (
     <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header />
-        <Hero />
-        <Benefits />
-        <Collaboration />
-        <Services />
-        <Pricing />
-        <Roadmap />
-        <Footer />
-      </div>
-
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/ourservices" element={<OurServices />} />
+        <Route path="/eservices" element={<Eservices />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="contactus" element={<ContactUs />} />
+      </Routes>
       <ButtonGradient />
+      <Footer />
     </>
   );
 };
