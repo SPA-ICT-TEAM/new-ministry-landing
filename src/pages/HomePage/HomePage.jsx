@@ -21,7 +21,7 @@ const HomePage = () => {
       <Roadmap ministry={ministry} />
       <Benefits ministry={ministry} />
       <Services ministry={ministry} />
-      <Faq />
+      <Faq ministry={ministry} />
     </>
   );
 };
