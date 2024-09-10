@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const Footer = () => {
   return (
-    <Section  className="py-0 bg-green-700/90">
+    <Section  className=" bg-green-700/90">
       <div className="">
       <div className=" pb-20 lg:px-20 md:px-9 sm-max:px-5">
         <div className="pb-6">
