@@ -1,75 +1,73 @@
 import Button from "./Button";
 import Heading from "./Heading";
 import Section from "./Section";
-import Tagline from "./Tagline";
-import { roadmap } from "../constants";
-import { check2, grid, loading1 } from "../assets";
-import { Gradient } from "./design/Roadmap";
 
-const Roadmap = () => (
+
+const trimDescription = (text) => {
+  return text.length > 10 ? text.substring(0, 100) + "..." : text;
+};
+
+const Roadmap = ({ ministry }) => (
+
   <Section className="overflow-hidden" id="roadmap">
-    <div className="container md:pb-10">
-      <Heading tag="Ready to get started" title="What we’re working on" />
+    <div className="container">
+      <Heading title="About & Leadership" />
 
-      <div className="relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-[7rem]">
-        {roadmap.map((item) => {
-          const status = item.status === "done" ? "Done" : "In progress";
-
-          return (
-            <div
-              className={`md:flex even:md:translate-y-[7rem] p-0.25 rounded-[2.5rem] ${
-                item.colorful ? "bg-conic-gradient" : "bg-n-6"
-              }`}
-              key={item.id}
-            >
-              <div className="relative p-8 bg-red-400 rounded-[2.4375rem] overflow-hidden xl:p-15">
-                <div className="absolute top-0 left-0 max-w-full">
-                  <img
-                    className="w-full"
-                    src={grid}
-                    width={550}
-                    height={550}
-                    alt="Grid"
-                  />
-                </div>
-                <div className="relative z-1">
-                  <div className="flex items-center justify-between max-w-[27rem] mb-8 md:mb-20">
-                    <Tagline>{item.date}</Tagline>
-
-                    <div className="flex items-center px-4 py-1 bg-n-1 rounded text-n-8">
-                      <img
-                        className="mr-2.5"
-                        src={item.status === "done" ? check2 : loading1}
-                        width={16}
-                        height={16}
-                        alt={status}
-                      />
-                      <div className="tagline">{status}</div>
-                    </div>
-                  </div>
-
-                  <div className="mb-10 -my-10 -mx-15">
-                    <img
-                      className="w-full"
-                      src={item.imageUrl}
-                      width={628}
-                      height={426}
-                      alt={item.title}
-                    />
-                  </div>
-                  <h4 className="h4 mb-4">{item.title}</h4>
-                  <p className="body-2 text-n-4">{item.text}</p>
-                </div>
+      <div className="relative grid gap-6 md:grid-cols-2 md:gap-4">
+        {/* Commissioner Details */}
+        {ministry?.ministryDetails && (
+          <div className="p-0.25 rounded-[2.5rem]">
+            <div className="rounded-[2.4375rem] overflow-hidden border-2 border-green-300">
+              <div className="w-full h-[350px] md:h-64 lg:h-[450px]">
+                <img
+                  className="w-full h-full object-cover rounded-t-[2.4375rem]"
+                  src={ministry?.ministryDetailsTwo?.photo}
+                  alt="About-Us"
+                />
               </div>
             </div>
-          );
-        })}
 
-        <Gradient />
-      </div>
+            {/* Text and button container */}
+            <div className="rounded-[2.4375rem] text-left">
+              <h2 className="px-5 pt-5 text-black font-bold" >{ministry?.ministryDetails?.name}</h2>
+              <p className="body-2 pt-5 px-5 mb-6 text-black"
+                dangerouslySetInnerHTML={{ __html: trimDescription(ministry?.ministryDetailsTwo?.about) }}
+              />
 
-      <div className="flex justify-center mt-12 md:mt-15 xl:mt-20">
-        <Button href="/roadmap">Our roadmap</Button>
+              <div className="pt-4 flex justify-center">
+                <Button className="bg-green-600" href="/commissioner">Read more</Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Ministry Details */}
+        {ministry?.commissionerDetails && (
+          <div className="p-0.25 rounded-[2.5rem]">
+            {/* Image container with gradient and border */}
+            <div className="rounded-[2.4375rem] overflow-hidden border-2 border-green-300">
+              <div className="w-full h-[350px] md:h-64 lg:h-[450px]">
+                <img
+                  className="w-full h-full object-cover rounded-t-[2.4375rem]"
+                  src={ministry?.commissionerDetails?.photo}
+                  alt={ministry.ministryDetailsTwo.title}
+                />
+              </div>
+            </div>
+
+            {/* Text and button container */}
+            <div className="rounded-[2.4375rem] text-left">
+              <h2 className="px-5 pt-5 text-black font-bold" >{ministry?.commissionerDetails?.name.toUpperCase()}</h2>
+              <p className="body-2 pt-5 px-5 mb-6 text-black"
+                dangerouslySetInnerHTML={{ __html: trimDescription(ministry?.commissionerDetails?.biography) }}
+              />
+
+              <div className="pt-4 flex justify-center">
+                <Button className="bg-green-600" href="/ministry-details">Read more</Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   </Section>
