@@ -1,16 +1,20 @@
+import { useContext } from "react";
 import { Hero } from "../../components/About/Hero";
 import { ContactForm } from "../../components/Contact/Form";
+import { UserContext } from "../../UserContext";
 
 export const ContactUs = () => {
+  const { ministry, loading } = useContext(UserContext);
+
   return (
-    <div className="md:pt-24 md:p-5 pt-20 p-3 text-black overflow-hidden max-w-screen min-h-screen">
+    <div className=" text-black mt-[100px] overflow-hidden max-w-screen ">
       <div className="container">
         <Hero
           title="Get in Touch"
           text="Have a question or want to work together? Fill out the form below and we'll get back to you"
         />
-      <ContactForm />
       </div>
+      <ContactForm ministry={ministry} loading={loading} />
     </div>
   );
 };
