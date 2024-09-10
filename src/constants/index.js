@@ -74,6 +74,11 @@ export const navigation = [
     onlyMobile: true,
   },
 ];
+export const links = [
+  { to: '/games', text: 'Games' },
+  { to: '/live-events', text: 'Live Events' },
+  { to: '/news', text: 'News & Blog' },
+];
 
 export const contactData = [
   {
