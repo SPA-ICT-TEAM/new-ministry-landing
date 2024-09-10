@@ -5,8 +5,8 @@ import { Eservices } from "./Pages/Eservicess";
 import { Projects } from "./Pages/Projects/Projects";
 import { ContactUs } from "./Pages/ContactUs";
 import Header from "./components/Header";
-import HomePage from "./pages/HomePage";
 import Footer from "./components/Footer";
+import HomePage from "./Pages/HomePage";
 import { UserProvider } from "./UserContext";
 import { DomainProvider } from "./DomainContext";
 
@@ -19,11 +19,11 @@ const App = () => {
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/ourservices" element={<OurServices />} />
-              <Route path="/eservices" element={<Eservices />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="contactus" element={<ContactUs />} />
+              <Route path="/about-us" element={<About />} />
+              <Route path="/services" element={<OurServices />} />
+              <Route path="/eServices" element={<Eservices />} />
+              <Route path="/project" element={<Projects />} />
+              <Route path="/contact" element={<ContactUs />} />
             </Routes>
             <Footer />
           </div>
