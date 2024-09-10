@@ -1,12 +1,6 @@
+import { Clock, MailCheck, MapPin, Phone } from "lucide-react";
 import Heading from "./Heading";
 import { useState } from "react";
-
-const quadrantItems = [
-  { id: 1, title: "Item 1", content: "Description for Item 1" },
-  { id: 2, title: "Item 2", content: "Description for Item 2" },
-  { id: 3, title: "Item 3", content: "Description for Item 3" },
-  { id: 4, title: "Item 4", content: "Description for Item 4" },
-];
 
 const Faq = ({ ministry }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -46,15 +40,33 @@ const Faq = ({ ministry }) => {
 
           {/* Quadrant Section */}
           <div className="flex flex-wrap justify-between w-full max-w-lg h-auto">
-            {quadrantItems.map((item) => (
-              <div
-                key={item.id}
-                className="w-1/2 h-40 flex flex-col justify-center items-center text-center p-4"
-              >
-                <h4 className="font-medium mb-2">{item.title}</h4>
-                <p className="text-sm text-gray-500">{item.content}</p>
-              </div>
-            ))}
+            {/* First Quadrant */}
+            <div className="w-1/2 h-40 flex flex-col justify-center items-center text-center p-4">
+              <MailCheck className="text-green-700 size-[30px]" />
+              <h4 className="font-medium text-black mt-2 mb-2">Contact us at</h4>
+              <p className="text-sm text-gray-500">{ministry?.ministryDetailsTwo?.email}</p>
+            </div>
+
+            {/* Second Quadrant */}
+            <div className="w-1/2 h-40 flex flex-col justify-center items-center text-center p-4">
+              <Phone className="text-green-700 size-[30px]" />
+              <h4 className="font-medium text-black mt-2 mb-2">Reach out to us by phone</h4>
+              <p className="text-sm text-gray-500">{ministry?.ministryDetailsTwo?.phone}</p>
+            </div>
+
+            {/* Third Quadrant */}
+            <div className="w-1/2 h-40 flex flex-col justify-center items-center text-center p-4">
+              <MapPin className="text-green-700 size-[30px]" />
+              <h4 className="font-medium text-black mt-2 mb-2">Find us at our office</h4>
+              <p className="text-sm text-gray-500">{ministry?.ministryDetailsTwo?.address}</p>
+            </div>
+
+            {/* Fourth Quadrant */}
+            <div className="w-1/2 h-40 flex flex-col justify-center items-center text-center p-4">
+              <Clock className="text-green-700 size-[30px]" />
+              <h4 className="font-medium text-black mt-2 mb-2">Our working hours</h4>
+              <p className="text-sm text-gray-500">{ministry?.ministryDetailsTwo?.office_hours}</p>
+            </div>
           </div>
         </div>
       </div>
