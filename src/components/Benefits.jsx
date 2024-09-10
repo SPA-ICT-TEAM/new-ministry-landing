@@ -38,7 +38,7 @@ const Benefits = ({ ministry }) => {
                     height={48}
                     alt={item.title}
                   />
-                  <p className="ml-auto font-code text-xs font-bold text-n-3 uppercase tracking-wider">
+                  <p className="ml-auto text-xs font-bold text-n-3 uppercase tracking-wider">
                     Learn more
                   </p>
                   <Arrow />
