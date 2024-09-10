@@ -6,8 +6,8 @@ import { companyLinks, links, socials } from "../utils/helpers";
 
 const Footer = () => {
   return (
-    <Section  className="py-0 bg-green-700/90">
-      <div className="">
+    <Section  className=" bg-green-700/90">
+      <div className="container">
       <div className=" pb-20 lg:px-20 md:px-9 sm-max:px-5">
         <div className="pb-6">
           <Link to="/features">
