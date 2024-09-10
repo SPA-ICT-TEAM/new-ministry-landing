@@ -6,10 +6,9 @@ import Button from "./Button";
 
 const Footer = () => {
   return (
-    <Section crosses className="">
-      {/* <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col"> */}
-      <div className="bg-green-700/90">
-      <div className="pt-14 pb-20 lg:px-20 md:px-9 sm-max:px-5">
+    <Section  className="py-0 bg-green-700/90">
+      <div className="">
+      <div className=" pb-20 lg:px-20 md:px-9 sm-max:px-5">
         <div className="pb-6">
           <Link to="/features">
             <img
@@ -88,7 +87,6 @@ const Footer = () => {
         </div>
       </div>
     </div>
-      {/* </div> */}
     </Section>
   );
 };
