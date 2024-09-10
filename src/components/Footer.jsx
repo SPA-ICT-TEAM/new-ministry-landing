@@ -1,5 +1,4 @@
 import Section from "./Section";
-import { socials } from "../constants";
 import { Link } from "react-router-dom";
 import {links} from "../constants/index"
 import logo from "../assets/logo.png"
@@ -16,7 +15,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="recheix-games"
-              className="w-16 h-16"
+              className="w-19 h-15"
             />
           </Link>
         </div>

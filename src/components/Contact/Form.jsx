@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { contactData } from '../../constants';
 import Button from '../Button';
@@ -13,7 +13,7 @@ export const ContactForm = () => {
     };
   
     return (
-      <div className="bg-[#1A191A] w-full p-3 md:p-0 relative flex items-center justify-center">
+      <div className="bg-[#1A191A] w-full min-w-full p-3 md:p-0 relative flex items-center justify-center">
         <div className="py-[6rem] relative lg:px-[6.5rem] md:px-10 flex flex-col md:flex-row items-start justify-between gap-[2rem] w-full">
           <div className='absolute  w-full flex justify-center z-0'>
               <h1 className="text-transparent text-9xl md:text-9xl lg:text-[200px] font-bold border-[#808080] opacity-10" 
