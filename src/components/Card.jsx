@@ -25,7 +25,7 @@ const Card = ({
       }}
     >
       <div
-        className={`relative z-2 flex ${isService? "pt-[220px]":""} flex-col p-[2.4rem] min-h-[22rem]   ${
+        className={`relative z-2 flex ${isService? "pt-[220px]":""} flex-col p-[2.4rem]   ${
           buttonProps ? "" : "pointer-events-none"
         }`}
       >
