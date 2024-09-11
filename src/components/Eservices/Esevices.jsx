@@ -26,9 +26,15 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
             />
             <h2 className="text-xl font-bold">{selectedService.name}</h2>
             <h3>{selectedService.description}</h3>
-            <Button onClick={onClose} className="mt-4 bg-green-400">
+            <div className="flex gap-2 pt-2">
+
+            <Button className="mt-4 bg-green-400">
               Pay &#8358;{amount}
             </Button>
+            <Button onClick={onClose} className="mt-4 bg-red-400">
+              Close
+            </Button>
+            </div>
           </div>
         ) : (
           <p>No service selected.</p>
