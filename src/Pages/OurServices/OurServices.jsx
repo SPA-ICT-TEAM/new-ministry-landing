@@ -16,6 +16,7 @@ export const OurServices = () => {
                 />
                 <Services ministry={ministry} />
             </div>
+            <Tomorrow />
         </div>
     )
 }
