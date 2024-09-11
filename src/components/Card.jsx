@@ -22,7 +22,7 @@ const Card = ({
       }}
     >
       <div
-        className={`relative z-2 flex flex-col min-h-[22rem] p-[2.4rem]  ${
+        className={`relative z-2 flex flex-col p-[2.4rem]  ${
           buttonProps ? "" : "pointer-events-none"
         }`}
       >
