@@ -1,4 +1,5 @@
 import { Hero } from "../../components/About/Hero";
+import { EServices } from "../../components/Eservices/Esevices";
 
 export const Eservices = () => {
   return (
@@ -8,6 +9,7 @@ export const Eservices = () => {
           title="e-Services"
           text="Discover our e-Services, for fast and easy access."
         />
+        <EServices />
       </div>
     </div>
   );

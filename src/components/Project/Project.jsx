@@ -1,7 +1,7 @@
 import { serviceData } from "../../constants"
 import Card from "../Card";
 
-export const Services = () => {
+export const Project = () => {
     return (
       <div className="flex flex-wrap gap-10 mb-10">
         {serviceData.length > 0 ? (
@@ -14,7 +14,7 @@ export const Services = () => {
             />
           ))
         ) : (
-          <p>No Service available at the Moment.</p>
+          <p>No Project available at the Moment.</p>
         )}
       </div>
     );

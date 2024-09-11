@@ -1,7 +1,8 @@
 import { serviceData } from "../../constants"
 import Card from "../Card";
+import logo from "../../assets/logo.png"
 
-export const Services = () => {
+export const EServices = () => {
     return (
       <div className="flex flex-wrap gap-10 mb-10">
         {serviceData.length > 0 ? (
@@ -11,6 +12,12 @@ export const Services = () => {
               title={item.title}
               text={item.text}
               light={item.light} 
+              buttonProps={{
+                buttonText: "Pay",
+                onClick: () => console.log(item.id)
+              }}
+              headerImage={item.image || logo}
+            
             />
           ))
         ) : (

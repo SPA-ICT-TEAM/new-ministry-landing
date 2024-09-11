@@ -1,4 +1,5 @@
 import { Hero } from "../../components/About/Hero";
+import { Project } from "../../components/Project/Project";
 
 export const Projects = () => {
   return (
@@ -8,6 +9,7 @@ export const Projects = () => {
           title="Our Projects"
           text="Explore a selection of our latest and greatest projects. Each one showcases our commitment to innovation and design excellence."
         />
+        <Project />
       </div>
     </div>
   );
