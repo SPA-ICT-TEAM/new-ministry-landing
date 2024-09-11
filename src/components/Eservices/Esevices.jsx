@@ -5,7 +5,7 @@ import Button from "../Button";
 import { cashFormater } from "../../utils/helpers";
 
 const Drawer = ({ isOpen, onClose, selectedService }) => {
-  const amount = selectedService?.price ? selectedService.price : "0.00"; 
+  const amount = selectedService?.price ? selectedService.price : "0.00";
 
   return (
     <div
@@ -13,32 +13,36 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="w-80 bg-white h-full p-5 shadow-lg absolute right-0 top-0">
-        <h2 className="absolute top-2 w-full right-0 text-center shadow-md p-3 md:text-[24px] font-bold">
-          Checkout Now
-        </h2>
-        {selectedService ? (
-          <div className="pt-11">
-            <img
-              src={selectedService.image || logo}
-              alt={selectedService.name}
-              className="w-full object-cover mb-4"
-            />
-            <h2 className="text-xl font-bold">{selectedService.name}</h2>
-            <h3>{selectedService.description}</h3>
-            <div className="flex gap-2 pt-2">
+      <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-full p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
+        <div>
+          <h2 className="absolute top-2 w-full right-0 text-center shadow-md p-3 md:text-[24px] font-bold">
+            Checkout
+          </h2>
 
-            <Button className="mt-4 bg-green-400">
-              Pay &#8358;{amount}
-            </Button>
-            <Button onClick={onClose} className="mt-4 bg-red-400">
-              Close
-            </Button>
+          {selectedService ? (
+            <div className="pt-11">
+              <div>
+                <img
+                  src={selectedService.image || logo}
+                  alt={selectedService.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedService.name}</h2>
+                <h3>{selectedService.description}</h3>
+              </div>
             </div>
-          </div>
-        ) : (
-          <p>No service selected.</p>
-        )}
+          ) : (
+            <p>No service selected.</p>
+          )}
+        </div>
+
+        {/* Buttons placed at the bottom */}
+        <div className="flex justify-between mt-auto pt-4">
+          <Button className="bg-green-400">Pay &#8358;{cashFormater(amount)}</Button>
+          <Button onClick={onClose} className="bg-red-400">
+            Close
+          </Button>
+        </div>
       </div>
     </div>
   );
