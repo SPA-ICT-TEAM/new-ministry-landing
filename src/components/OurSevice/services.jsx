@@ -1,15 +1,14 @@
-import { serviceData } from "../../constants"
 import Card from "../Card";
 
-export const Services = () => {
+export const Services = ({ ministry }) => {
     return (
-      <div className="flex flex-wrap gap-10 items-center justify-center bg-white rounded-3xl px-10 py-10 mb-10">
-        {serviceData.length > 0 ? (
-          serviceData.map((item) => (
+      <div className="flex flex-wrap gap-10 bg-white rounded-3xl px-10 py-10 mb-10">
+        {ministry?.ourServices?.length > 0 ? (
+          ministry?.ourServices?.map((item) => (
             <Card
               key={item.id}
-              title={item.title}
-              text={item.text}
+              title={item.name}
+              text={item.description}
               light={item.light} 
             />
           ))

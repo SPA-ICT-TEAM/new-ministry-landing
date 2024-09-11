@@ -9,25 +9,29 @@ import Footer from "./components/Footer";
 import HomePage from "./Pages/HomePage";
 import { UserProvider } from "./UserContext";
 import { DomainProvider } from "./DomainContext";
+import { ProjectProvider } from "./ProjectContext";
 
 const App = () => {
   return (
     <DomainProvider>
       <UserProvider>
-        <Router>
-          <div className="overflow-hidden">
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about-us" element={<About />} />
-              <Route path="/services" element={<OurServices />} />
-              <Route path="/eServices" element={<Eservices />} />
-              <Route path="/project" element={<Projects />} />
-              <Route path="/contact" element={<ContactUs />} />
-            </Routes>
-            <Footer />
-          </div>
-        </Router>
+        <ProjectProvider>
+          <Router>
+            <div className="overflow-hidden">
+              <Header />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about-us" element={<About />} />
+                <Route path="/services" element={<OurServices />} />
+                <Route path="/eServices" element={<Eservices />} />
+                <Route path="/project" element={<Projects />} />
+                <Route path="/contact" element={<ContactUs />} />
+                {/* <Route path="/project/:id" element={<ViewProject />} /> */}
+              </Routes>
+              <Footer />
+            </div>
+          </Router>
+        </ProjectProvider>
       </UserProvider>
     </DomainProvider>
   );

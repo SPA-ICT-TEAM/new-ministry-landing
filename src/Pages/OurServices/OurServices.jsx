@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { Hero } from "../../components/About/Hero"
-import { Services } from "../../components/OurSevice/services"
+import { Hero } from "../../components/About/Hero";
+import { Services } from "../../components/OurSevice/services";
 import { UserContext } from "../../UserContext";
 import { Tomorrow } from "../../components/Tomorrow";
 
