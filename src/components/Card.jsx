@@ -3,6 +3,7 @@ import Arrow from "../assets/svg/Arrow";
 import { GradientLight } from "./design/Benefits";
 import Button from "./Button";
 import logo from "../assets/logo.png";
+import { useLocation } from "react-router";
 
 const Card = ({
   title,
@@ -14,6 +15,8 @@ const Card = ({
   buttonProps,
   headerImage,
 }) => {
+  const location = useLocation();
+  const isService = location.pathname == "/eServices"
   return (
     <div
       className="block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem]"
@@ -22,12 +25,12 @@ const Card = ({
       }}
     >
       <div
-        className={`relative z-2 flex flex-col p-[2.4rem]  ${
+        className={`relative z-2 flex ${isService? "pt-[220px]":""} flex-col p-[2.4rem]   ${
           buttonProps ? "" : "pointer-events-none"
         }`}
       >
         {headerImage && (
-          <div className="w-full h-[200px]">
+          <div className="w-full h-[200px] rounded-t-3xl absolute top-0 left-0 overflow-hidden">
             <img
               src={headerImage}
               alt={title}

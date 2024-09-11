@@ -5,15 +5,15 @@ import Button from "../Button";
 import { cashFormater } from "../../utils/helpers";
 
 const Drawer = ({ isOpen, onClose, selectedService }) => {
-  const amount = selectedService?.amount ? selectedService.amount : "0.00"; 
+  const amount = selectedService?.price ? selectedService.price : "0.00"; 
 
   return (
     <div
       className={`fixed inset-0 bg-gray-600 bg-opacity-50 z-50 transition-transform transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
+        isOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="w-80 bg-white h-full p-5 shadow-lg relative">
+      <div className="w-80 bg-white h-full p-5 shadow-lg absolute right-0 top-0">
         <h2 className="absolute top-2 w-full right-0 text-center shadow-md p-3 md:text-[24px] font-bold">
           Checkout Now
         </h2>
@@ -21,14 +21,20 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
           <div className="pt-11">
             <img
               src={selectedService.image || logo}
-              alt={selectedService.title}
+              alt={selectedService.name}
               className="w-full object-cover mb-4"
             />
-            <h2 className="text-xl font-bold">{selectedService.title}</h2>
-            <h3>{selectedService.text}</h3>
-            <Button onClick={onClose} className="mt-4 bg-green-400">
+            <h2 className="text-xl font-bold">{selectedService.name}</h2>
+            <h3>{selectedService.description}</h3>
+            <div className="flex gap-2 pt-2">
+
+            <Button className="mt-4 bg-green-400">
               Pay &#8358;{amount}
             </Button>
+            <Button onClick={onClose} className="mt-4 bg-red-400">
+              Close
+            </Button>
+            </div>
           </div>
         ) : (
           <p>No service selected.</p>
@@ -43,7 +49,6 @@ export const EServices = ({ ministry }) => {
   const [selectedService, setSelectedService] = useState(null);
 
   console.log(ministry);
-
 
   const handleButtonClick = (service) => {
     setSelectedService(service);
