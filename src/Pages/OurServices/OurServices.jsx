@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Hero } from "../../components/About/Hero"
 import { Services } from "../../components/OurSevice/services"
 import { UserContext } from "../../UserContext";
+import { Tomorrow } from "../../components/Tomorrow";
 
 export const OurServices = () => {
   const { ministry } = useContext(UserContext);
@@ -16,6 +17,7 @@ export const OurServices = () => {
                 />
                 <Services ministry={ministry} />
             </div>
+            <Tomorrow />
         </div>
     )
 }
