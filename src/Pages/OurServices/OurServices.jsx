@@ -10,7 +10,10 @@ export const OurServices = () => {
         <div className="md:pt-24 md:p-5 pt-20 p-3 text-black overflow-hidden max-w-screen min-h-screen">
             <div className="container">
 
-            <Hero title="Our Sevices"/>
+            <Hero
+                title="Our Services"
+                text="Explore our comprehensive range of services designed to support and enhance your operations."
+                />
                 <Services ministry={ministry} />
             </div>
         </div>
