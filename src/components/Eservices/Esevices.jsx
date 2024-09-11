@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { serviceData } from "../../constants";
 import Card from "../Card";
 import logo from "../../assets/logo.png";
 import Button from "../Button";
+import { cashFormater } from "../../utils/helpers";
 
 const Drawer = ({ isOpen, onClose, children }) => {
   return (
@@ -21,9 +21,12 @@ const Drawer = ({ isOpen, onClose, children }) => {
   );
 };
 
-export const EServices = () => {
+export const EServices = ({ ministry }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
+
+  console.log(ministry);
+
 
   const handleButtonClick = (service) => {
     setSelectedService(service);
@@ -47,15 +50,15 @@ export const EServices = () => {
       </Drawer>
 
       <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
-        {serviceData.length > 0 ? (
-          serviceData.map((item) => (
+        {ministry?.services?.length > 0 ? (
+          ministry?.services?.map((item) => (
             <Card
               key={item.id}
-              title={item.title}
-              text={item.text}
+              title={item.name}
+              text={item.description}
               light={item.light}
               buttonProps={{
-                buttonText: "Pay",
+                buttonText: `Pay ₦${cashFormater(item?.price)}`,
                 onClick: () => handleButtonClick(item),
               }}
               headerImage={item.image || logo} 

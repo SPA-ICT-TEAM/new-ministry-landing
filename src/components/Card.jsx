@@ -27,11 +27,9 @@ const Card = ({
         }`}
       >
         {headerImage && (
-          <div>
+          <div className="w-full h-[200px]">
             <img
               src={headerImage}
-              width={380}
-              height={362}
               alt={title}
               className="w-full h-full object-cover"
             />

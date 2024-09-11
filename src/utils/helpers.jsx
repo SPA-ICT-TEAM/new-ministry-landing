@@ -30,3 +30,19 @@ export const companyLinks = [
   { to: 'https://enugustate.gov.ng/lgas/', text: 'LGAs' },
   { to: 'https://enuguemploymentportal.org/', text: 'Employment' },
 ];
+
+export function cashFormater(cash) {
+  cash += "";
+  const indexOfDecimal = cash.indexOf(".");
+
+  cash =
+    cash.substr(indexOfDecimal).length > 3
+      ? cash.substr(0, indexOfDecimal + 3)
+      : cash;
+  cash += cash.indexOf(".") === -1 ? ".00" : "";
+  cash = cash.substr(cash.indexOf(".")).length === 2 ? `${cash}0` : cash;
+  return cash
+    .replace(/(\d((?=(.{3})+$)))/g, "$1,")
+    .replace(/,\./, ".")
+    .replace(".00", "");
+}
