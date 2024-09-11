@@ -55,7 +55,7 @@ export const EServices = () => {
     <div>
       <Drawer isOpen={drawerOpen} onClose={closeDrawer} selectedService={selectedService} />
 
-      <div className="flex flex-wrap gap-10 mb-10">
+      <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
         {serviceData.length > 0 ? (
           serviceData.map((item) => (
             <Card

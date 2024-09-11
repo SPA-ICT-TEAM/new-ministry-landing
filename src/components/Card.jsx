@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
 import Arrow from "../assets/svg/Arrow";
 import { GradientLight } from "./design/Benefits";
-import ClipPath from "../assets/svg/ClipPath";
 import Button from "./Button";
 import logo from "../assets/logo.png";
 
 const Card = ({
   title,
   text,
-  imageUrl,
   iconUrl,
   backgroundUrl,
   light,
@@ -18,7 +16,7 @@ const Card = ({
 }) => {
   return (
     <div
-      className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
+      className="block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem]"
       style={{
         backgroundImage: `url(${backgroundUrl})`,
       }}

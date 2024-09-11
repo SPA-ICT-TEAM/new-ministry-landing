@@ -15,7 +15,7 @@ const App = () => {
     <DomainProvider>
       <UserProvider>
         <Router>
-          <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+          <div className="overflow-hidden">
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />

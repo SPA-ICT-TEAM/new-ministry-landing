@@ -37,7 +37,7 @@ const Hero = ({ ministry }) => {
           {ministry?.heroDetails?.subtitle}
           </p>
 
-          <Button className="text-green-700 font-extrabold bg-white" href="/pricing">
+          <Button className="!text-green-700 font-extrabold bg-white" href="/pricing">
           {ministry?.heroDetails?.button_text}
           </Button>
         </div>
