@@ -1,6 +1,7 @@
 import Button from "./Button";
 import Heading from "./Heading";
 import Section from "./Section";
+import { mainLogo } from "../assets";
 
 
 const trimDescription = (text) => {
@@ -21,7 +22,7 @@ const Roadmap = ({ ministry }) => (
               <div className="w-full h-[350px] md:h-64 lg:h-[450px]">
                 <img
                   className="w-full h-full object-cover rounded-t-[2.4375rem]"
-                  src={ministry?.ministryDetailsTwo?.photo}
+                  src={ministry?.ministryDetailsTwo?.photo || mainLogo}
                   alt="About-Us"
                 />
               </div>
@@ -49,7 +50,7 @@ const Roadmap = ({ ministry }) => (
               <div className="w-full h-[350px] md:h-64 lg:h-[450px]">
                 <img
                   className="w-full h-full object-cover rounded-t-[2.4375rem]"
-                  src={ministry?.commissionerDetails?.photo}
+                  src={ministry?.commissionerDetails?.photo || mainLogo}
                   alt={ministry.ministryDetailsTwo.title}
                 />
               </div>

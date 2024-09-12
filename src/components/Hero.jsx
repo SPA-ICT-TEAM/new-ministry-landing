@@ -2,7 +2,7 @@ import { curve } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { useRef } from "react";
-// import { bg } from "../assets";
+import { landingDefault } from "../assets";
 
 const Hero = ({ ministry }) => {
   const parallaxRef = useRef(null);
@@ -17,7 +17,7 @@ const Hero = ({ ministry }) => {
       <div
         className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${ministry?.heroDetails?.hero_image})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${ministry?.heroDetails?.hero_image || landingDefault})`,
         }}
         ref={parallaxRef}
       >

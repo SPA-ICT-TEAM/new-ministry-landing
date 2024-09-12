@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Card from "../Card";
 import logo from "../../assets/logo.png";
-import { serviceData } from "../../constants";
 import Button from "../Button";
 
-const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
+const Drawer = ({ isOpen, onClose, selectedNews }) => {
 
   return (
     <div
@@ -15,23 +14,23 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
       <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-full p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
         <div>
           <h2 className="absolute top-2 w-full right-0 text-center shadow-md p-3 md:text-[24px] font-bold">
-          Project Details
+            News Update
           </h2>
 
-          {selectedProject ? (
+          {selectedNews ? (
             <div className="pt-11">
               <div>
                 <img
-                  src={selectedProject.image || logo}
-                  alt={selectedProject.titlee}
+                  src={selectedNews.image || logo}
+                  alt={selectedNews.name}
                   className="w-full object-cover rounded-3xl mb-4"
                 />
-                <h2 className="text-xl font-bold">{selectedProject.title}</h2>
-                <h3>{selectedProject.text}</h3>
+                <h2 className="text-xl font-bold">{selectedNews.title}</h2>
+                <h3>{selectedNews.content}</h3>
               </div>
             </div>
           ) : (
-            <p>No project selected.</p>
+            <p>No news selected.</p>
           )}
         </div>
 
@@ -46,13 +45,14 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
   );
 };
 
-export const Project = ({ ministry }) => {
-  console.log(ministry);
+export const NewsContent = ({ ministry }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedNews, setSelectedNews] = useState(null);
 
-  const handleSeeMoreClick = (project) => {
-    setSelectedProject(project);
+  console.log(ministry);
+
+  const handleButtonClick = (news) => {
+    setSelectedNews(news);
     setDrawerOpen(true);
   };
 
@@ -62,24 +62,25 @@ export const Project = ({ ministry }) => {
 
   return (
     <div>
-      <ProjectDrawer isOpen={drawerOpen} onClose={closeDrawer} selectedProject={selectedProject} />
+      <Drawer isOpen={drawerOpen} onClose={closeDrawer} selectedService={selectedNews} />
 
-      <div className="flex flex-wrap gap-10 mb-10 bg-white rounded-3xl px-10 items-center justify-center py-10">
-        {serviceData.length > 0 ? (
-          serviceData.map((item) => (
+      <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
+        {ministry?.news?.length > 0 ? (
+          ministry?.news?.map((item) => (
             <Card
               key={item.id}
               title={item.title}
-              text={item.text}
+              text={item.content}
               light={item.light}
               buttonProps={{
-                buttonText: "See More",
-                onClick: () => handleSeeMoreClick(item),
+                buttonText: "See more",
+                onClick: () => handleButtonClick(item),
               }}
+              headerImage={item.image || logo}
             />
           ))
         ) : (
-          <p>No Project available at the moment.</p>
+          <p>No service available at the moment.</p>
         )}
       </div>
     </div>

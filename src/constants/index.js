@@ -39,19 +39,24 @@ export const navigation = [
     id: "4",
     title: "ENSG",
     url: "",
-  },  
+  }, 
   {
     id: "5",
+    title: "News",
+    url: "/news",
+  },   
+  {
+    id: "6",
     title: "Projects",
     url: "/project",
   },
   {
-    id: "6",
+    id: "7",
     title: "Contact Us",
     url: "/contact",
   },
   {
-    id: "7",
+    id: "8",
     title: "Login",
     url: "#login",
     onlyMobile: true,

@@ -18,15 +18,16 @@ const Card = ({
   const location = useLocation();
   const isService = location.pathname == "/eServices"
   const isProject = location.pathname == "/project"
+  const isNews = location.pathname == "/news"
   return (
     <div
-      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject? "min-h-[22rem]" : ""} `}
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "min-h-[22rem]" : ""} `}
       style={{
         backgroundImage: `url(${backgroundUrl})`,
       }}
     >
       <div
-        className={`relative z-2 flex ${isService? "pt-[220px]":""} flex-col p-[2.4rem]   ${
+        className={`relative z-2 flex ${isService || isNews ? "pt-[220px]":""} flex-col p-[2.4rem]   ${
           buttonProps ? "" : "pointer-events-none"
         }`}
       >

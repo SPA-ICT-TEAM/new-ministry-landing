@@ -10,6 +10,7 @@ import HomePage from "./Pages/HomePage";
 import { UserProvider } from "./UserContext";
 import { DomainProvider } from "./DomainContext";
 import { ProjectProvider } from "./ProjectContext";
+import { News } from "./Pages/News/News";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
                 <Route path="/about-us" element={<About />} />
                 <Route path="/services" element={<OurServices />} />
                 <Route path="/eServices" element={<Eservices />} />
+                <Route path="/news" element={<News />} />
                 <Route path="/project" element={<Projects />} />
                 <Route path="/contact" element={<ContactUs />} />
                 {/* <Route path="/project/:id" element={<ViewProject />} /> */}
