@@ -45,11 +45,14 @@ const Drawer = ({ isOpen, onClose, selectedNews }) => {
   );
 };
 
-export const NewsContent = ({ ministry }) => {
+export const NewsContent = ({ ministry, ministryNews, isLoading }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
+  const newss = (ministry?.news?.length > 0 ? ministry.news : ministryNews?.news) || [];
+  console.log(newss);
 
   console.log(ministry);
+  console.log(ministryNews);
 
   const handleButtonClick = (news) => {
     setSelectedNews(news);
@@ -65,8 +68,8 @@ export const NewsContent = ({ ministry }) => {
       <Drawer isOpen={drawerOpen} onClose={closeDrawer} selectedService={selectedNews} />
 
       <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
-        {ministry?.news?.length > 0 ? (
-          ministry?.news?.map((item) => (
+        {newss?.length > 0 ? (
+          newss?.map((item) => (
             <Card
               key={item.id}
               title={item.title}

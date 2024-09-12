@@ -5,9 +5,18 @@ import { GradientLight } from "./design/Benefits";
 import ClipPath from "../assets/svg/ClipPath";
 import Button from "./Button";
 import { benefitIcon3 } from "../assets";
+import { useNavigate } from "react-router";
 
-const Benefits = ({ ministry }) => {
-  console.log(ministry);
+const Benefits = ({ ministry, loading }) => {
+  const navigate = useNavigate();
+
+  // Determine if there are any services
+  const hasServices = ministry?.ourServices?.length > 0;
+
+  // Don't render the section if no services are available
+  if (!hasServices) {
+    return null;
+  }
 
   return (
     <Section id="features">
@@ -17,7 +26,7 @@ const Benefits = ({ ministry }) => {
           title="Services"
         />
 
-        {/* Grid layout for 4 items */}
+        {/* Grid layout for services */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ministry?.ourServices?.map((item) => (
             <div
@@ -58,7 +67,9 @@ const Benefits = ({ ministry }) => {
 
         {/* Centered button after services mapping */}
         <div className="flex justify-center mt-10">
-          <Button href="/more-services" className="bg-green-600 text-white px-6 py-2 rounded-lg">
+          <Button className="bg-green-600 text-white px-6 py-2 rounded-lg"
+            onClick={() => navigate("/services", { state: { ministry, loading } })}
+          >
             View More Services
           </Button>
         </div>
@@ -66,5 +77,4 @@ const Benefits = ({ ministry }) => {
     </Section>
   );
 };
-
 export default Benefits;
