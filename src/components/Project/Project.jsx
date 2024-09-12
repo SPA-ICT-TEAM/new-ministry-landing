@@ -79,7 +79,7 @@ export const Project = ({ ministry }) => {
             />
           ))
         ) : (
-          <p>No Project available at the moment.</p>
+          <p className="text-center font-bold" >No Project available at the moment.</p>
         )}
       </div>
     </div>

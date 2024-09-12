@@ -30,7 +30,7 @@ const Roadmap = ({ ministry }) => (
 
             {/* Text and button container */}
             <div className="rounded-[2.4375rem] text-left">
-              <h2 className="px-5 pt-5 text-black font-bold" >{ministry?.ministryDetails?.name}</h2>
+              <h2 className="px-5 pt-5 text-black font-bold" >{ministry?.ministryDetails?.name.toUpperCase()}</h2>
               <p className="body-2 pt-5 px-5 mb-6 text-black"
                 dangerouslySetInnerHTML={{ __html: trimDescription(ministry?.ministryDetailsTwo?.about) }}
               />

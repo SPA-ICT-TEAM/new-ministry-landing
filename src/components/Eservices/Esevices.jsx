@@ -83,7 +83,7 @@ export const EServices = ({ ministry }) => {
             />
           ))
         ) : (
-          <p>No service available at the moment.</p>
+          <p className="text-center font-bold" >No service available at the moment.</p>
         )}
       </div>
     </div>

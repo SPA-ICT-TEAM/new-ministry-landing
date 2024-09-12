@@ -1,11 +1,18 @@
-import { useContext } from "react";
 import { Hero } from "../../components/About/Hero";
 import { Project } from "../../components/Project/Project";
-import { UserContext } from "../../UserContext";
 import { Tomorrow } from "../../components/Tomorrow";
+import SplashLoader from "../../components/SplashLoader";
+import { useLocation } from "react-router";
 
 export const Projects = () => {
-  const { ministry, loading } = useContext(UserContext);
+  
+  const location = useLocation();
+  const { ministry, loading } = location.state || { ministry: null};
+  console.log(ministry);
+
+  if(loading) {
+    return <SplashLoader/>
+  }
 
   return (
     <div className=" text-black ">
@@ -14,7 +21,7 @@ export const Projects = () => {
           title="Our Projects"
           text="Explore a selection of our latest and greatest projects. Each one showcases our commitment to innovation and design excellence."
         />
-        <Project ministry={ministry} loading={loading} />
+        <Project ministry={ministry} />
       </div>
       <Tomorrow />
     </div>

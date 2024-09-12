@@ -1,12 +1,18 @@
-import { useContext } from "react";
 import { Hero } from "../../components/About/Hero";
-import { UserContext } from "../../UserContext";
 import { Tomorrow } from "../../components/Tomorrow";
 import { NewsContent } from "../../components/News/NewsContent";
+import { useLocation } from "react-router";
+import SplashLoader from "../../components/SplashLoader";
 
 export const News = () => {
 
-  const { ministry, loading } = useContext(UserContext);
+  const location = useLocation();
+  const { ministry, loading } = location.state || { ministry: null };
+  console.log(ministry);
+
+  if(loading) {
+    return <SplashLoader/>
+  }
 
   return (
     <div className=" text-black overflow-hidden max-w-screen ">

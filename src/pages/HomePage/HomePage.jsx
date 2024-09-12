@@ -17,11 +17,11 @@ const HomePage = () => {
 
   return (
     <>
-      <Hero ministry={ministry} />
-      <Roadmap ministry={ministry} />
-      <Benefits ministry={ministry} />
-      <Services ministry={ministry} />
-      <Faq ministry={ministry} />
+      <Hero ministry={ministry} loading={loading} />
+      <Roadmap ministry={ministry} loading={loading} />
+      <Benefits ministry={ministry} loading={loading} />
+      <Services ministry={ministry} loading={loading} />
+      <Faq ministry={ministry} loading={loading} />
     </>
   );
 };

@@ -80,7 +80,7 @@ export const NewsContent = ({ ministry }) => {
             />
           ))
         ) : (
-          <p>No service available at the moment.</p>
+          <p className="text-center font-bold">No News available at the moment.</p>
         )}
       </div>
     </div>
