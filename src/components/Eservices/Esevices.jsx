@@ -15,9 +15,14 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
     >
       <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-full p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
         <div>
-          <h2 className="absolute top-2 w-full right-0 text-center shadow-md p-3 md:text-[24px] font-bold">
-            Checkout
-          </h2>
+        <div className="absolute top-2 w-full right-0  shadow-md p-3 px-6 flex items-center justify-between">
+            <h2 className="text-center md:text-[24px] font-bold">
+              Checkout
+            </h2>
+            <Button onClick={onClose} className="bg-red-400">
+              Close
+            </Button>
+          </div>
 
           {selectedService ? (
             <div className="pt-11">
@@ -34,15 +39,11 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
           ) : (
             <p>No service selected.</p>
           )}
+        <div className="flex justify-between mt-auto pt-11 ">
+          <Button className="bg-green-400 w-full">Pay &#8358;{cashFormater(amount)}</Button>
+        </div>
         </div>
 
-        {/* Buttons placed at the bottom */}
-        <div className="flex justify-between mt-auto pt-4">
-          <Button className="bg-green-400">Pay &#8358;{cashFormater(amount)}</Button>
-          <Button onClick={onClose} className="bg-red-400">
-            Close
-          </Button>
-        </div>
       </div>
     </div>
   );

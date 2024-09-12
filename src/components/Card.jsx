@@ -5,6 +5,13 @@ import Button from "./Button";
 import logo from "../assets/logo.png";
 import { useLocation } from "react-router";
 
+const trimText = (text, maxLength) => {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + "...";
+  }
+  return text;
+};
+
 const Card = ({
   title,
   text,
@@ -16,18 +23,22 @@ const Card = ({
   headerImage,
 }) => {
   const location = useLocation();
-  const isService = location.pathname == "/eServices"
-  const isProject = location.pathname == "/project"
-  const isNews = location.pathname == "/news"
+  const isService = location.pathname == "/eServices";
+  const isProject = location.pathname == "/project";
+  const isNews = location.pathname == "/news";
+
+  const trimmedTitle = title ? trimText(title, 40) : "";
+  const trimmedText = text ? trimText(text,70) : "";
+
   return (
     <div
-      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "min-h-[22rem]" : ""} `}
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "h-[30rem]" : ""}`}
       style={{
         backgroundImage: `url(${backgroundUrl})`,
       }}
     >
       <div
-        className={`relative z-2 flex ${isService || isNews ? "pt-[220px]":""} flex-col p-[2.4rem]   ${
+        className={`relative z-2 flex ${isService || isNews ? "pt-[220px]":""} flex-col p-[2.4rem] ${isProject ? "pt-[250px]":""}   ${
           buttonProps ? "" : "pointer-events-none"
         }`}
       >
@@ -35,16 +46,16 @@ const Card = ({
           <div className="w-full h-[200px] rounded-t-3xl absolute top-0 left-0 overflow-hidden">
             <img
               src={headerImage}
-              alt={title}
+              alt={trimmedTitle}
               className="w-full h-full object-cover"
             />
           </div>
         )}
 
-        {title && <h5 className="h5 mb-5">{title}</h5>}
-        {text && <p className="body-2 mb-6 text-n-3">{text}</p>}
+        {trimmedTitle && <h5 className="h5 mb-5">{trimmedTitle}</h5>}
+        {trimmedText && <p className="body-2 mb-6 text-n-3">{trimmedText}</p>}
         <div className="flex items-center mt-auto">
-          {iconUrl && <img src={iconUrl} width={48} height={48} alt={title} />}
+          {iconUrl && <img src={iconUrl} width={48} height={48} alt={trimmedTitle} />}
           {seeMore && (
             <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
               {seeMore}
@@ -74,7 +85,7 @@ const Card = ({
               src={logo}
               width={380}
               height={362}
-              alt={title}
+              alt={trimmedTitle}
               className="w-full h-full object-cover"
             />
           </div>
