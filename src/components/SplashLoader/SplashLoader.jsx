@@ -1,4 +1,4 @@
-import stateLogo from '../../assets/collaboration/logo.png';
+import stateLogo from "../../assets/logo.png";
 
 function SplashLoader() {
   return (

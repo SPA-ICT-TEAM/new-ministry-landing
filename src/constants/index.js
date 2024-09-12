@@ -1,15 +1,15 @@
 import {
-  discordBlack,
-  facebook,
+  // discordBlack,
+  // facebook,
   file02,
   homeSmile,
-  instagram,
+  // instagram,
   notification2,
   notification3,
   notification4,
   plusSquare,
   searchMd,
-  telegram,
+  // telegram,
   twitter,
   yourlogo,
 } from "../assets";
@@ -133,7 +133,7 @@ export const socials = [
   {
     id: "0",
     title: "Discord",
-    iconUrl: discordBlack,
+    // iconUrl: discordBlack,
     url: "#",
   },
   {
@@ -145,19 +145,19 @@ export const socials = [
   {
     id: "2",
     title: "Instagram",
-    iconUrl: instagram,
+    // iconUrl: instagram,
     url: "#",
   },
   {
     id: "3",
     title: "Telegram",
-    iconUrl: telegram,
+    // iconUrl: telegram,
     url: "#",
   },
   {
     id: "4",
     title: "Facebook",
-    iconUrl: facebook,
+    // iconUrl: facebook,
     url: "#",
   },
 ];

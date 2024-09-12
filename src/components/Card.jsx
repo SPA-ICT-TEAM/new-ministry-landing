@@ -17,9 +17,10 @@ const Card = ({
 }) => {
   const location = useLocation();
   const isService = location.pathname == "/eServices"
+  const isProject = location.pathname == "/project"
   return (
     <div
-      className="block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem]"
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject? "min-h-[22rem]" : ""} `}
       style={{
         backgroundImage: `url(${backgroundUrl})`,
       }}
