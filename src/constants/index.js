@@ -4,13 +4,13 @@ import {
   file02,
   homeSmile,
   // instagram,
-  notification2,
-  notification3,
-  notification4,
+  // notification2,
+  // notification3,
+  // notification4,
   plusSquare,
   searchMd,
   // telegram,
-  twitter,
+  // twitter,
   yourlogo,
 } from "../assets";
 
@@ -84,7 +84,7 @@ export const contactData = [
 
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
-export const notificationImages = [notification4, notification3, notification2];
+export const notificationImages = []; //notification4, notification3, notification2
 
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
@@ -139,7 +139,7 @@ export const socials = [
   {
     id: "1",
     title: "Twitter",
-    iconUrl: twitter,
+    // iconUrl: twitter,
     url: "#",
   },
   {
