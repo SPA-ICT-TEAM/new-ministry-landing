@@ -11,7 +11,7 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-full p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
+      <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-screen pb-6 border-red-500 border-[2px] p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
         <div>
           <div className="absolute top-2 w-full right-0  shadow-md p-3 px-6 flex items-center justify-between">
             <h2 className="text-center md:text-[24px] font-bold">
@@ -23,7 +23,61 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
           </div>
 
           {selectedProject ? (
-            <div className="pt-16">
+            <div className="mt-16  overflow-y-scroll h-[50%]">
+              <div>
+                <img
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
+              </div>
+              <div>
+                <img
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
+              </div>
+              <div>
+                <img
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
+              </div>
+              <div>
+                <img
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
+              </div>
+              <div>
+                <img
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
+              </div>
+              <div>
+                <img
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
+                  className="w-full object-cover rounded-3xl mb-4"
+                />
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
+              </div>
               <div>
                 <img
                   src={selectedProject.image_path || logo}
@@ -44,11 +98,11 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
 };
 
 export const Project = ({ ministry, ministryProject, isLoading }) => {
-  console.log(ministry);
+  console.log(ministry );
   console.log(ministryProject);
 
   const serviceData = (ministry?.projects?.length > 0 ? ministry.projects : ministryProject?.projects) || [];
-  console.log(serviceData ,"this");
+  console.log(serviceData);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);

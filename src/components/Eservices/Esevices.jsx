@@ -50,6 +50,8 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
 };
 
 export const EServices = ({ ministry }) => {
+  console.log(ministry);
+  
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
