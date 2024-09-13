@@ -25,6 +25,7 @@ const Card = ({
   const location = useLocation();
   const isService = location.pathname == "/eServices";
   const isProject = location.pathname == "/project";
+  const service = location.pathname == "/services"
   const isNews = location.pathname == "/news";
 
   const trimmedTitle = title ? trimText(title, 40) : "";
@@ -32,7 +33,7 @@ const Card = ({
 
   return (
     <div
-      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "h-[30rem]" : ""} ${isNews? "w-[300px]" : ""}`}
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "h-[30rem]" : ""} ${isNews || service? "w-[]" : ""} w-[300px]`}
       style={{
         backgroundImage: `url(${backgroundUrl})`,
       }}

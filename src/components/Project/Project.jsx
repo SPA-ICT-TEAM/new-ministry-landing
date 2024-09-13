@@ -70,7 +70,7 @@ export const Project = ({ ministry, ministryProject, isLoading }) => {
         selectedProject={selectedProject}
       />
 
-      <div className="flex flex-wrap gap-10 mb-10 bg-white rounded-3xl px-10 items-center justify-center py-10">
+      <div className="flex flex-wrap gap-6 mb-10 bg-white rounded-3xl px-10 items-center justify-center py-10">
         {serviceData.length > 0 ? (
           serviceData.map((item) => (
             <Card
