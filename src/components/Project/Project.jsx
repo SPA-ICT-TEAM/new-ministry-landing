@@ -43,8 +43,13 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
   );
 };
 
-export const Project = ({ ministry }) => {
+export const Project = ({ ministry, ministryProject, isLoading }) => {
   console.log(ministry);
+  console.log(ministryProject);
+
+  const serviceData = (ministry?.projects?.length > 0 ? ministry.projects : ministryProject?.projects) || [];
+  console.log(serviceData);
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
