@@ -11,6 +11,7 @@ import { UserProvider } from "./UserContext";
 import { DomainProvider } from "./DomainContext";
 import { ProjectProvider } from "./ProjectContext";
 import { News } from "./Pages/News/News";
+import { NewsInfo } from "./Pages/NewsInfo";
 
 const App = () => {
   return (
@@ -26,9 +27,9 @@ const App = () => {
                 <Route path="/services" element={<OurServices />} />
                 <Route path="/eServices" element={<Eservices />} />
                 <Route path="/news" element={<News />} />
+                <Route path="/news/:id" element={<NewsInfo />} />
                 <Route path="/project" element={<Projects />} />
                 <Route path="/contact" element={<ContactUs />} />
-                {/* <Route path="/project/:id" element={<ViewProject />} /> */}
               </Routes>
               <Footer />
             </div>

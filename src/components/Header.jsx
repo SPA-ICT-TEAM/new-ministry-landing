@@ -31,6 +31,20 @@ const Header = () => {
     setOpenNavigation(false);
   };
 
+  // Helper function to determine if the link is active
+  const isActive = (url) => {
+    if (url === "/") {
+      // Exact match for the home path
+      return location.pathname === "/";
+    } else if (url === "/news") {
+      // Check if the path starts with /news, but not exactly /news to avoid highlighting on /news/something
+      return location.pathname.startsWith("/news") && location.pathname !== "/";
+    } else {
+      // General case for other paths
+      return location.pathname === url;
+    }
+  };
+
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50 lg:bg-green-700/90 lg:backdrop-blur ${
@@ -58,7 +72,7 @@ const Header = () => {
                   className={`block relative text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
                     item.onlyMobile ? "lg:hidden" : ""
                   } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-                    item.url === location.pathname
+                    isActive(item.url)
                       ? "z-2 lg:text-white font-bold"
                       : "lg:text-n-1/50"
                   } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
@@ -77,7 +91,7 @@ const Header = () => {
                   className={`block relative text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
                     item.onlyMobile ? "lg:hidden" : ""
                   } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-                    item.url === location.pathname
+                    isActive(item.url)
                       ? "z-2 lg:text-white font-bold"
                       : "lg:text-n-1/50"
                   } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
