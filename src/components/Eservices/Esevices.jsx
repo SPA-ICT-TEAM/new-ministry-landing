@@ -3,6 +3,7 @@ import Card from "../Card";
 import logo from "../../assets/logo.png";
 import Button from "../Button";
 import { cashFormater } from "../../utils/helpers";
+import { serviceData } from "../../constants";
 
 const Drawer = ({ isOpen, onClose, selectedService }) => {
   const amount = selectedService?.price ? selectedService.price : "0.00";
@@ -15,10 +16,8 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
     >
       <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-full p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
         <div>
-        <div className="absolute top-2 w-full right-0  shadow-md p-3 px-6 flex items-center justify-between">
-            <h2 className="text-center md:text-[24px] font-bold">
-              Checkout
-            </h2>
+          <div className="absolute top-2 w-full right-0 shadow-md p-3 px-6 flex items-center justify-between">
+            <h2 className="text-center md:text-[24px] font-bold">Checkout</h2>
             <Button onClick={onClose} className="bg-red-400">
               Close
             </Button>
@@ -39,11 +38,12 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
           ) : (
             <p>No service selected.</p>
           )}
-        <div className="flex justify-between mt-auto pt-11 ">
-          <Button className="bg-green-400 w-full">Pay &#8358;{cashFormater(amount)}</Button>
+        <div className="flex justify-between mt-auto pt-11">
+          <Button className="bg-green-400 w-full">
+            Pay &#8358;{cashFormater(amount)}
+          </Button>
         </div>
         </div>
-
       </div>
     </div>
   );
@@ -52,8 +52,6 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
 export const EServices = ({ ministry }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-
-  console.log(ministry);
 
   const handleButtonClick = (service) => {
     setSelectedService(service);
@@ -66,7 +64,11 @@ export const EServices = ({ ministry }) => {
 
   return (
     <div>
-      <Drawer isOpen={drawerOpen} onClose={closeDrawer} selectedService={selectedService} />
+      <Drawer
+        isOpen={drawerOpen}
+        onClose={closeDrawer}
+        selectedService={selectedService}
+      />
 
       <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
         {ministry?.services?.length > 0 ? (
@@ -84,7 +86,9 @@ export const EServices = ({ ministry }) => {
             />
           ))
         ) : (
-          <p className="text-center font-bold" >No service available at the moment.</p>
+          <p className="text-center font-bold">
+            No service available at the moment.
+          </p>
         )}
       </div>
     </div>
