@@ -32,7 +32,7 @@ const Card = ({
 
   return (
     <div
-      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "h-[30rem]" : ""}`}
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "h-[30rem]" : ""} ${isNews? "w-[300px]" : ""}`}
       style={{
         backgroundImage: `url(${backgroundUrl})`,
       }}
