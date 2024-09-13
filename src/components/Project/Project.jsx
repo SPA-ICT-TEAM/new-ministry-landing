@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Card from "../Card";
 import logo from "../../assets/logo.png";
-import { serviceData } from "../../constants";
 import Button from "../Button";
 
 const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
@@ -24,7 +23,7 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
 
           {selectedProject ? (
             <div className="mt-16  overflow-y-scroll max-h-screen">
-              <div>
+              <div className="mt-11" >
                 <img
                   src={selectedProject.image_path || logo}
                   alt={selectedProject.name}

@@ -1,7 +1,8 @@
-export const Background = () => {
-    return (
-      <div className="relative z-1 flex flex-col items-start mb-5 p-8 border bg-white shadow-[20px_20px_62px_#aaaaaa,-20px_-20px_62px_#ffffff] border-n-1/10 rounded-3xl overflow-hidden lg:p-20 ">
-        <div>
+export const Background = ({ ministry, isLoading }) => {
+  return (
+    <div className="w-full bg-white border border-n-1/10 overflow-hidden p-8 lg:p-20">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-5">
           <h4 className="h4 mb-4">Professional Background and Qualifications</h4>
           <ol className="list-decimal pl-5 body-2 mb-[3rem] text-n-3">
             <li>First School Leaving Certificate (FSLC)</li>
@@ -11,7 +12,7 @@ export const Background = () => {
             <li>Member Nigerian Medical Association (MNMA)</li>
           </ol>
         </div>
-        
+
         <div>
           <h4 className="h4 mb-4">Achievements and Initiatives</h4>
           <ol className="list-decimal pl-5 body-2 mb-[3rem] text-n-3">
@@ -40,6 +41,6 @@ export const Background = () => {
           </ol>
         </div>
       </div>
-    );
-  };
-  
+    </div>
+  );
+};

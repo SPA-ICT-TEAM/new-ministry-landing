@@ -3,7 +3,6 @@ import Card from "../Card";
 import logo from "../../assets/logo.png";
 import Button from "../Button";
 import { cashFormater } from "../../utils/helpers";
-import { serviceData } from "../../constants";
 
 const Drawer = ({ isOpen, onClose, selectedService }) => {
   const amount = selectedService?.price ? selectedService.price : "0.00";
@@ -25,7 +24,7 @@ const Drawer = ({ isOpen, onClose, selectedService }) => {
 
           {selectedService ? (
             <div className="pt-11">
-              <div>
+              <div className="mt-11" >
                 <img
                   src={selectedService.image || logo}
                   alt={selectedService.name}

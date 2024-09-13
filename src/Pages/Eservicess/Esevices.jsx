@@ -3,13 +3,10 @@ import { Hero } from "../../components/About/Hero";
 import { EServices } from "../../components/Eservices/Esevices";
 import { UserContext } from "../../UserContext";
 import { Tomorrow } from "../../components/Tomorrow";
-import { useLocation } from "react-router";
 
 export const Eservices = () => {
 
-  const { ministry: ministryProject, loading: isLoading } = useContext(UserContext);
-  const location = useLocation();
-  const { ministry, loading } = location.state || { ministry: null};
+  const { ministry, loading: isLoading } = useContext(UserContext);
 
   return (
     <div className=" text-black overflow-hidden max-w-screen ">
@@ -18,7 +15,7 @@ export const Eservices = () => {
           title="e-Services"
           text="Discover our e-Services, for fast and easy access."
         />
-        <EServices ministry={ministry} loading={loading} ministryProject={ministryProject} isLoading={isLoading}  />
+        <EServices ministry={ministry} isLoading={isLoading}  />
       </div>
       <Tomorrow />
     </div>
