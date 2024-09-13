@@ -13,9 +13,14 @@ const Drawer = ({ isOpen, onClose, selectedNews }) => {
     >
       <div className="w-80 md:w-[28rem] lg:w-[32rem] xl:w-[36rem] bg-white h-full p-5 shadow-lg absolute right-0 top-0 flex flex-col justify-between">
         <div>
-          <h2 className="absolute top-2 w-full right-0 text-center shadow-md p-3 md:text-[24px] font-bold">
-            News Update
-          </h2>
+        <div className="absolute top-2 w-full right-0  shadow-md p-3 px-6 flex items-center justify-between">
+            <h2 className="text-center md:text-[24px] font-bold">
+              News update
+            </h2>
+            <Button onClick={onClose} className="bg-red-400">
+              Close
+            </Button>
+          </div>
 
           {selectedNews ? (
             <div className="pt-11">
@@ -30,15 +35,8 @@ const Drawer = ({ isOpen, onClose, selectedNews }) => {
               </div>
             </div>
           ) : (
-            <p>No news selected.</p>
+            <p className="pt-24">No news selected.</p>
           )}
-        </div>
-
-        {/* Buttons placed at the bottom */}
-        <div className="flex justify-between mt-auto pt-4">
-          <Button onClick={onClose} className="bg-red-400">
-            Close
-          </Button>
         </div>
       </div>
     </div>
