@@ -23,15 +23,15 @@ const ProjectDrawer = ({ isOpen, onClose, selectedProject }) => {
           </div>
 
           {selectedProject ? (
-            <div className="pt-11">
+            <div className="pt-16">
               <div>
                 <img
-                  src={selectedProject.image || logo}
-                  alt={selectedProject.titlee}
+                  src={selectedProject.image_path || logo}
+                  alt={selectedProject.name}
                   className="w-full object-cover rounded-3xl mb-4"
                 />
-                <h2 className="text-xl font-bold">{selectedProject.title}</h2>
-                <h3>{selectedProject.text}</h3>
+                <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+                <h3>{selectedProject.description}</h3>
               </div>
             </div>
           ) : (
@@ -48,7 +48,7 @@ export const Project = ({ ministry, ministryProject, isLoading }) => {
   console.log(ministryProject);
 
   const serviceData = (ministry?.projects?.length > 0 ? ministry.projects : ministryProject?.projects) || [];
-  console.log(serviceData);
+  console.log(serviceData ,"this");
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -75,14 +75,14 @@ export const Project = ({ ministry, ministryProject, isLoading }) => {
           serviceData.map((item) => (
             <Card
               key={item.id}
-              title={item.title}
-              text={item.text}
+              title={item.name}
+              text={item.description}
               light={item.light}
               buttonProps={{
                 buttonText: "See More",
                 onClick: () => handleSeeMoreClick(item),
               }}
-              headerImage={item.image || logo}
+              headerImage={item.image_path || logo}
             />
           ))
         ) : (
