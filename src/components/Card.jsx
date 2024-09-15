@@ -4,13 +4,10 @@ import { GradientLight } from "./design/Benefits";
 import Button from "./Button";
 import logo from "../assets/logo.png";
 import { useLocation } from "react-router";
+import { useMemo } from "react";
 
-const trimText = (text, maxLength) => {
-  if (text.length > maxLength) {
-    return text.slice(0, maxLength) + "...";
-  }
-  return text;
-};
+const trimText = (text, maxLength) =>
+  text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 
 const Card = ({
   title,
@@ -23,49 +20,82 @@ const Card = ({
   headerImage,
 }) => {
   const location = useLocation();
-  const isService = location.pathname == "/eServices";
-  const isProject = location.pathname == "/project";
-  const service = location.pathname == "/services"
-  const isNews = location.pathname == "/news";
+  const routeType = useMemo(() => {
+    const { pathname } = location;
+    return {
+      isService: pathname === "/eServices",
+      isProject: pathname === "/project",
+      isNews: pathname === "/news",
+      isServicePage: pathname === "/services",
+    };
+  }, [location]);
 
-  const trimmedTitle = title ? trimText(title, 40) : "";
-  const trimmedText = text ? trimText(text,70) : "";
+  const trimmedTitle = useMemo(
+    () => (title ? trimText(title, 40) : ""),
+    [title]
+  );
+  const trimmedText = useMemo(() => (text ? trimText(text, 70) : ""), [text]);
 
   return (
     <div
-      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem] ${isProject ? "h-[30rem]" : ""} ${isNews || service? "w-[]" : ""} w-[300px]`}
-      style={{
-        backgroundImage: `url(${backgroundUrl})`,
-      }}
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-cover md:max-w-[22rem] ${
+        routeType.isProject ? "h-[30rem]" : ""
+      } ${
+        routeType.isNews || routeType.isServicePage ? "w-full" : "w-[300px]"
+      }`}
+      style={{ backgroundImage: `url(${backgroundUrl})` }}
     >
       <div
-        className={`relative z-2 flex ${isService || isNews ? "pt-[220px]":""} flex-col p-[2.4rem] ${isProject ? "pt-[250px]":""}   ${
-          buttonProps ? "" : "pointer-events-none"
-        }`}
+        className={`relative z-2 flex flex-col p-[2.4rem] ${
+          routeType.isService || routeType.isNews ? "pt-[220px]" : ""
+        } ${routeType.isProject ? "pt-[250px]" : ""}`}
       >
         {headerImage && (
-          <div className="w-full h-[200px] rounded-t-3xl absolute top-0 left-0 overflow-hidden">
+          <div
+            className={`w-full absolute top-0 left-0 overflow-hidden ${
+              routeType.isNews
+                ? "h-full rounded-3xl"
+                : "h-[200px] rounded-t-3xl"
+            }`}
+          >
             <img
               src={headerImage}
               alt={trimmedTitle}
               className="w-full h-full object-cover"
             />
+            {routeType.isNews && (
+              <div
+                onClick={buttonProps.onClick}
+                className="absolute cursor-pointer flex flex-col items-center justify-end inset-0 bg-black bg-opacity-50 p-3"
+              >
+                <h2 className="text-white font-bold text-xl text-center">
+                  {trimmedText}
+                </h2>
+              </div>
+            )}
           </div>
         )}
 
-        {trimmedTitle && <h5 className="h5 mb-5">{trimmedTitle}</h5>}
-        {trimmedText && <p className="body-2 mb-6 text-n-3">{trimmedText}</p>}
+        {trimmedTitle && !routeType.isNews && (
+          <h5 className="h5 mb-5">{trimmedTitle}</h5>
+        )}
+        {trimmedText && !routeType.isNews && (
+          <p className="body-2 mb-6 text-n-3">{trimmedText}</p>
+        )}
+
         <div className="flex items-center mt-auto">
-          {iconUrl && <img src={iconUrl} width={48} height={48} alt={trimmedTitle} />}
+          {iconUrl && (
+            <img src={iconUrl} width={48} height={48} alt={trimmedTitle} />
+          )}
           {seeMore && (
             <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
               {seeMore}
             </p>
           )}
 
-          {buttonProps?.buttonText && (
+          {buttonProps?.buttonText && !routeType.isNews && (
             <div className="flex items-center">
-              <Button onClick={buttonProps?.onClick} className="bg-green-400">
+              <Button onClick={buttonProps.onClick} className="bg-green-400">
                 {buttonProps.buttonText}
               </Button>
               <Arrow />
@@ -92,8 +122,6 @@ const Card = ({
           </div>
         )}
       </div>
-
-      {/* <ClipPath /> */}
     </div>
   );
 };
@@ -101,7 +129,6 @@ const Card = ({
 Card.propTypes = {
   title: PropTypes.string,
   text: PropTypes.string,
-  imageUrl: PropTypes.string,
   iconUrl: PropTypes.string,
   backgroundUrl: PropTypes.string,
   light: PropTypes.bool,
@@ -110,19 +137,18 @@ Card.propTypes = {
     buttonText: PropTypes.string,
     onClick: PropTypes.func,
   }),
-  headerImage: PropTypes.string, 
+  headerImage: PropTypes.string,
 };
 
 Card.defaultProps = {
   title: "",
   text: "",
-  imageUrl: "",
   iconUrl: "",
   backgroundUrl: "",
   light: false,
   seeMore: "",
   buttonProps: null,
-  headerImage: null, 
+  headerImage: null,
 };
 
 export default Card;
