@@ -56,6 +56,11 @@ const Services = ({ ministry, loading }) => {
           {/* News Section */}
           <div className="flex flex-col items-center">
             <div className="relative h-[60vh] max-h-[700px] w-full border border-n-1/10 rounded-3xl overflow-hidden">
+              {/* News Label */}
+              <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full z-10">
+                News
+              </div>
+
               <img
                 src={news[currentNewsIndex]?.image}
                 className="h-full w-full object-cover"
@@ -90,6 +95,9 @@ const Services = ({ ministry, loading }) => {
           {/* Projects Section */}
           <div className="flex flex-col items-center">
             <div className="relative h-[60vh] max-h-[700px] w-full border border-n-1/10 rounded-3xl overflow-hidden">
+              <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full z-10">
+                Projects
+              </div>
               <img
                 src={projects[currentProjectIndex]?.image_path}
                 className="h-full w-full object-cover"

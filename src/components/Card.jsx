@@ -23,7 +23,7 @@ const Card = ({
   const routeType = useMemo(() => {
     const { pathname } = location;
     return {
-      isService: pathname === "/eServices",
+      isService: pathname === "/eServices" || pathname === "/",
       isProject: pathname === "/project",
       isNews: pathname === "/news",
       isServicePage: pathname === "/services",

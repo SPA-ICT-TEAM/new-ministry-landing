@@ -64,33 +64,64 @@ export const EServices = ({ ministry }) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Drawer
         isOpen={drawerOpen}
         onClose={closeDrawer}
         selectedService={selectedService}
       />
 
-      <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
-        {ministry?.services?.length > 0 ? (
-          ministry?.services?.map((item) => (
-            <Card
-              key={item.id}
-              title={item.name}
-              text={item.description}
-              light={item.light}
-              buttonProps={{
-                buttonText: `Pay ₦${cashFormater(item?.price)}`,
-                onClick: () => handleButtonClick(item),
-              }}
-              headerImage={item.image || logo}
-            />
-          ))
-        ) : (
-          <p className="text-center font-bold">
-            No service available at the moment.
-          </p>
-        )}
+      {/* E-Services Container */}
+      <div className="mb-10 w-full max-w-7xl">
+        <div className="flex justify-center">
+          <div className="bg-green-500 text-white py-2 px-4 rounded-xl mb-5">
+            Paid-Services
+          </div>
+        </div>
+        <div className="flex flex-wrap bg-white rounded-3xl px-6 py-10 gap-2 justify-start">
+          {ministry?.services?.length > 0 ? (
+            ministry?.services?.map((item) => (
+              <Card
+                key={item.id}
+                title={item.name}
+                text={item.description}
+                light={item.light}
+                buttonProps={{
+                  buttonText: `Pay ₦${cashFormater(item?.price)}`,
+                  onClick: () => handleButtonClick(item),
+                }}
+                headerImage={item.image || logo}
+              />
+            ))
+          ) : (
+            <p className="text-center font-bold">
+              No e-service available at the moment.
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Our Services Container */}
+      <div className="w-full max-w-7xl">
+        <div className="flex justify-center">
+          <div className="bg-green-500 text-white py-2 px-4 rounded-xl mb-10 mt-5">
+            Services
+          </div>
+        </div>
+        <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 justify-start">
+          {ministry?.ourServices?.length > 0 ? (
+            ministry?.ourServices?.map((item) => (
+              <div key={item.id} className="border border-green-400 p-4 rounded-lg w-full sm:w-[calc(50%-20px)] md:w-[calc(33.33%-20px)] lg:w-[calc(25%-20px)] xl:w-[calc(20%-20px)]">
+                <h3 className="font-bold text-lg mb-2">{item.name}</h3>
+                <p className="text-n-3">{item.description}</p>
+              </div>
+            ))
+          ) : (
+            <p className="text-center font-bold">
+              No service available at the moment.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

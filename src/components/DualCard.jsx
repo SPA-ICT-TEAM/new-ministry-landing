@@ -1,6 +1,6 @@
 export const DualCard = ({ ministry }) => {
     return (
-        <div className="relative container z-1 grid gap-5 lg:grid-cols-2 md:py-24">
+        <div className="relative container z-1 grid gap-5 mb-[30px] lg:grid-cols-2 md:py-24">
             <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img

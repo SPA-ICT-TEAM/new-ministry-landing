@@ -12,7 +12,7 @@ export const Eservices = () => {
     <div className=" text-black overflow-hidden max-w-screen ">
       <div className="md:pt-24 md:p-5 pt-20 p-3 container">
         <Hero
-          title="e-Services"
+          title="Services"
           text="Discover our e-Services, for fast and easy access."
         />
         <EServices ministry={ministry} isLoading={isLoading}  />

@@ -105,9 +105,13 @@ const Header = () => {
           <HamburgerMenu />
         </nav>
 
-        <Button className="hidden lg:flex !text-green-700 bg-white" href="#login">
+        <Button 
+          className="hidden lg:flex !text-green-700 bg-white" 
+          onClick={() => window.open('https://egovernance.enugustate.gov.ng/login', '_blank')}
+        >
           Login
         </Button>
+
 
         <Button
           className="ml-auto lg:hidden"

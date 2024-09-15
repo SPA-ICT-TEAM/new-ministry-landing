@@ -3,9 +3,11 @@ import Button from "./Button";
 import Section from "./Section";
 import { useRef } from "react";
 import { landingDefault } from "../assets";
+import { useNavigate } from "react-router";
 
 const Hero = ({ ministry }) => {
   const parallaxRef = useRef(null);
+  const navigate = useNavigate();
 
   return (
     <Section
@@ -37,8 +39,10 @@ const Hero = ({ ministry }) => {
           {ministry?.heroDetails?.subtitle}
           </p>
 
-          <Button className="!text-green-700 font-extrabold bg-white" href="/pricing">
-          {ministry?.heroDetails?.button_text}
+          <Button className="!text-green-700 font-extrabold bg-white"
+            onClick={() => navigate("/about-us", { state: { ministry } })}
+          >
+            {ministry?.heroDetails?.button_text}
           </Button>
         </div>
       </div>

@@ -27,69 +27,41 @@ export const navigation = [
   },
   {
     id: "2",
-    title: "Our Services",
-    url: "/services",
-  },
-  {
-    id: "3",
-    title: "E-Services",
+    title: "Services",
     url: "/eServices",
   },
   {
-    id: "4",
+    id: "3",
     title: "ENSG",
     url: "",
   }, 
   {
-    id: "5",
+    id: "4",
     title: "News",
     url: "/news",
   },   
   {
-    id: "6",
+    id: "5",
     title: "Projects",
     url: "/project",
   },
   {
-    id: "7",
+    id: "6",
     title: "Contact Us",
     url: "/contact",
   },
   {
-    id: "8",
+    id: "7",
     title: "Login",
     url: "#login",
     onlyMobile: true,
   },
 ];
-export const links = [
-  { to: '/games', text: 'Games' },
-  { to: '/live-events', text: 'Live Events' },
-  { to: '/news', text: 'News & Blog' },
-];
 
-export const contactData = [
-  {
-    title:"Our Office Address",
-    content : "State Secretariat Complex GRA Enugu.",
-  },
-  {
-    title:"Phone Number",
-    content : "08036699458",
-  },
-  {
-    title:"e-Mail Address",
-    content : "housing@enugustate.gov.ng",
-  },
-  {
-    title:"Office Hour",
-    content : "0800hrs – 1700hrs",
-  }
-]
 
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
-export const notificationImages = []; //notification4, notification3, notification2
+export const notificationImages = [];
 
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 

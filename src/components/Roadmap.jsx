@@ -5,7 +5,7 @@ import { mainLogo } from "../assets";
 
 
 const trimDescription = (text) => {
-  return text.length > 10 ? text.substring(0, 100) + "..." : text;
+  return text.length > 10 ? text.substring(0, 80) + "..." : text;
 };
 
 const Roadmap = ({ ministry }) => (
@@ -31,7 +31,7 @@ const Roadmap = ({ ministry }) => (
             {/* Text and button container */}
             <div className="rounded-[2.4375rem] text-left">
               <h2 className="px-5 pt-5 text-black font-bold" >{ministry?.ministryDetails?.name.toUpperCase()}</h2>
-              <p className="body-2 pt-5 px-5 mb-6 text-black"
+              <p className="body-2 pt-5 px-5 mb-6 text-gray-600"
                 dangerouslySetInnerHTML={{ __html: trimDescription(ministry?.ministryDetailsTwo?.about) }}
               />
 
@@ -59,7 +59,7 @@ const Roadmap = ({ ministry }) => (
             {/* Text and button container */}
             <div className="rounded-[2.4375rem] text-left">
               <h2 className="px-5 pt-5 text-black font-bold" >{ministry?.commissionerDetails?.name.toUpperCase()}</h2>
-              <p className="body-2 pt-5 px-5 mb-6 text-black"
+              <p className="body-2 pt-5 px-5 mb-6 text-gray-600"
                 dangerouslySetInnerHTML={{ __html: trimDescription(ministry?.commissionerDetails?.biography) }}
               />
 
