@@ -17,7 +17,7 @@ export const DualCard = ({ ministry }) => {
             <div className="p-4  rounded-3xl bg-white shadow-[20px_20px_62px_#aaaaaa,-20px_-20px_62px_#ffffff] overflow-hidden lg:min-h-[46rem] ">
               <div className="py-12 px-4 xl:px-8 ">
                 <h4 className="h4 fonte-bold font-black text-green-700 mb-4">Leadership</h4>
-                <div className="text-n-3"
+                <div className="text-black"
                   dangerouslySetInnerHTML={{ __html: ministry?.commissionerDetails?.biography }}
                 />
               </div>
