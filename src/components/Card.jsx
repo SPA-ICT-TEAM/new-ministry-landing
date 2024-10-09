@@ -36,6 +36,15 @@ const Card = ({
   );
   const trimmedText = useMemo(() => (text ? trimText(text, 70) : ""), [text]);
 
+  const handleButtonClick = (e) => {
+    if (location.pathname === "/eServices") {
+      e.preventDefault();
+      window.open("https://irs.en.gov.ng/pay/flutterwave", "_blank");
+    } else if (buttonProps?.onClick) {
+      buttonProps.onClick(e);
+    }
+  };
+
   return (
     <div
       className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat bg-cover md:max-w-[22rem] ${
@@ -65,7 +74,7 @@ const Card = ({
             />
             {routeType.isNews && (
               <div
-                onClick={buttonProps.onClick}
+                onClick={handleButtonClick}
                 className="absolute cursor-pointer flex flex-col items-center justify-end inset-0 bg-black bg-opacity-50 p-3"
               >
                 <h2 className="text-white font-bold text-xl text-center">
@@ -95,7 +104,7 @@ const Card = ({
 
           {buttonProps?.buttonText && !routeType.isNews && (
             <div className="flex items-center">
-              <Button onClick={buttonProps.onClick} className="bg-green-400">
+              <Button onClick={handleButtonClick} className="bg-green-400">
                 {buttonProps.buttonText}
               </Button>
               <Arrow />
