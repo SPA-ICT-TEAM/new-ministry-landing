@@ -6,6 +6,7 @@ import { companyLinks, links, socials } from "../utils/helpers";
 
 const Footer = () => {
   return (
+    <>
     <Section className="py-0 bg-green-700/90">
       <div className="">
         <div className="pb-20 lg:px-20 md:px-9 sm-max:px-5">
@@ -76,7 +77,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="text-center py-2">
+        <p>&copy; {new Date().getFullYear()} Enugu State Governement ICT. All Rights Reserved.</p>
+      </div>
     </Section>
+    
+
+    </>
   );
 };
 

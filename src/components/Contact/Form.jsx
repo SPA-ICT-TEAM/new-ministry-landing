@@ -4,7 +4,7 @@ import Button from '../Button';
 
 export const ContactForm = ({ ministry }) => {
     const [captchaVerified, setCaptchaVerified] = useState(false);
-    console.log(ministry);
+    // console.log(ministry);
   
     const handleCaptchaChange = (value) => {
       if (value) {
@@ -56,13 +56,13 @@ export const ContactForm = ({ ministry }) => {
                     required
                     type={input.type}
                     id={input.id}
-                    className="border-b border-gray-600 bg-transparent text-white w-full outline-none"
+                    className="border-b border-gray-600 bg-transparent text-black w-full outline-none"
                   />
                 </div>
               ))}
   
               <ReCAPTCHA
-                sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                sitekey="6Ld_pfUpAAAAAI0j5-DiL-QP2HJ6Otrwi18bhW9i"
                 onChange={handleCaptchaChange}
               />
   

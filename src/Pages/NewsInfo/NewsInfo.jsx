@@ -30,14 +30,16 @@ export const NewsInfo = () => {
       </div>
       <div className="container mx-auto p-5 pt-0 text-black relative h-[600px]">
         <div className="left-0 w-full flex absolute justify-center items-center md:-mt-16 -mt-11 flex-col gap-1">
+     
+          <div className="shadow-2xl p-8 bg-white w-full md:w-[70%] rounded-t-xl h-[640px] overflow-y-scroll">
           <div className="flex px-3 md:px-0 text-green-600 items-center w-full md:w-[70%] gap-3">
-            <Link to="/" className="cursor-pointer hover:text-white">Home</Link>
+            <Link to="/" className="cursor-pointer hover:text-green-800">Home</Link>
             <RiArrowRightSLine />
-            <Link to="/news" className="cursor-pointer hover:text-white">News</Link>
+            <Link to="/news" className="cursor-pointer hover:text-green-800">News</Link>
             <RiArrowRightSLine />
             <h1 className="cursor-pointer">{selectedNews.title}</h1>
           </div>
-          <div className="shadow-2xl p-8 bg-white w-full md:w-[70%] rounded-t-xl h-[640px] overflow-y-scroll">
+
             <h2 className="text-2xl font-extrabold">{selectedNews.title}</h2>
             <h3 className="mt-2 font-extralight">{selectedNews.content}</h3>
           </div>

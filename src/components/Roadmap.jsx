@@ -36,7 +36,7 @@ const Roadmap = ({ ministry }) => (
               />
 
               <div className="pt-4 flex justify-center">
-                <Button className="bg-green-600" href="/commissioner">Read more</Button>
+                <Button className="bg-green-600" href="/about-us">Read more</Button>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ const Roadmap = ({ ministry }) => (
               />
 
               <div className="pt-4 flex justify-center">
-                <Button className="bg-green-600" href="/ministry-details">Read more</Button>
+                <Button className="bg-green-600" href="/about-us">Read more</Button>
               </div>
             </div>
           </div>
