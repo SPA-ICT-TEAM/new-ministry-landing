@@ -27,6 +27,18 @@ const Benefits = ({ ministry, loading }) => {
     return null;
   }
 
+  const handleButtonClick = (item) => {
+    const buttonText = `Pay ₦${cashFormater(item?.price)}`;
+    if (buttonText.toLowerCase().includes('price') || 
+        buttonText.toLowerCase().includes('pay') || 
+        buttonText.includes(cashFormater(item?.price))) {
+      window.open('https://irs.en.gov.ng/pay/flutterwave', '_blank');
+    } else {
+      // Handle regular button click
+      // You can add your custom logic here
+    }
+  };
+
   const renderServiceItem = (item) => {
     if (ministry?.services?.length > 0) {
       // Render using Card component for ministry.services
@@ -38,7 +50,7 @@ const Benefits = ({ ministry, loading }) => {
           light={item.light}
           buttonProps={{
             buttonText: `Pay ₦${cashFormater(item?.price)}`,
-            // onClick: () => handleButtonClick(item),
+            onClick: () => handleButtonClick(item),
           }}
           headerImage={item.image || mainLogo}
         />
