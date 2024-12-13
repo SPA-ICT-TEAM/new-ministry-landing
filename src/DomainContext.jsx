@@ -12,7 +12,7 @@ export const DomainProvider = ({ children }) => {
     const fetchDomain = async () => {
       try {
         const currentHost = window.location.host;
-        console.log('Domain:', currentHost);
+        // console.log('Domain:', currentHost);
         setDomain(currentHost);
       } catch (err) {
         setError(err.message);

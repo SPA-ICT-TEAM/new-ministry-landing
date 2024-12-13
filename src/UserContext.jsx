@@ -28,9 +28,9 @@ export const UserProvider = ({ children }) => {
 
     const fetchMinistry = async (url) => {
       try {
-        console.log('url2',url);
+        // console.log('url2',url);
         const response = await axios.get(url);
-        // console.log(response);
+        console.log("minnistry", response);
         setMinistry(response.data);
       } catch (err) {
         // console.log('Error:', err);

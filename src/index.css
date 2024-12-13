@@ -133,3 +133,8 @@
 .-rotate-360 {
   @apply rotate-[-360deg]
 }
+
+.swiper {
+  height: 450px;
+  overflow-x: hidden;
+}

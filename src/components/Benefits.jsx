@@ -8,6 +8,16 @@ import { benefitIcon3, mainLogo } from "../assets";
 import { useNavigate } from "react-router";
 import Card from "./Card";
 import { cashFormater } from "../utils/helpers";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 
 const Benefits = ({ ministry, loading }) => {
   const navigate = useNavigate();
@@ -18,8 +28,8 @@ const Benefits = ({ ministry, loading }) => {
   }
 
   // Determine which services to use and limit to 4 items
-  const servicesToUse = ministry?.services?.length > 0 
-    ? ministry.services.slice(0, 4) 
+  const servicesToUse = ministry?.services?.length > 0
+    ? ministry.services.slice(0, 4)
     : ministry?.ourServices?.slice(0, 4) || [];
 
   // Don't render the section if no services are available after slicing
@@ -29,9 +39,9 @@ const Benefits = ({ ministry, loading }) => {
 
   const handleButtonClick = (item) => {
     const buttonText = `Pay ₦${cashFormater(item?.price)}`;
-    if (buttonText.toLowerCase().includes('price') || 
-        buttonText.toLowerCase().includes('pay') || 
-        buttonText.includes(cashFormater(item?.price))) {
+    if (buttonText.toLowerCase().includes('price') ||
+      buttonText.toLowerCase().includes('pay') ||
+      buttonText.includes(cashFormater(item?.price))) {
       window.open('https://irs.en.gov.ng/pay/flutterwave', '_blank');
     } else {
       // Handle regular button click
@@ -43,6 +53,7 @@ const Benefits = ({ ministry, loading }) => {
     if (ministry?.services?.length > 0) {
       // Render using Card component for ministry.services
       return (
+        <SwiperSlide>
         <Card
           key={item.id}
           title={item.name}
@@ -54,11 +65,13 @@ const Benefits = ({ ministry, loading }) => {
           }}
           headerImage={item.image || mainLogo}
         />
+        </SwiperSlide>
       );
     } else {
       // Render using the existing layout for ministry.ourServices
       return (
-        <div
+
+        <SwiperSlide
           className="relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[22rem]"
           style={{
             backgroundImage: `url(${item.backgroundUrl})`,
@@ -89,7 +102,7 @@ const Benefits = ({ ministry, loading }) => {
           ></div>
 
           <ClipPath />
-        </div>
+        </SwiperSlide>
       );
     }
   };
@@ -102,12 +115,37 @@ const Benefits = ({ ministry, loading }) => {
           title="Services"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={50}
+          breakpoints={{
+            1024: {
+              slidesPerView: 3,
+            },
+            768: { 
+              slidesPerView: 2,
+            },
+            0: {
+              slidesPerView: 1,
+            }
+          }}
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log('slide change')}
+          className=""
+        >
           {servicesToUse.map(renderServiceItem)}
-        </div>
+        </Swiper>
+
+
+
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {servicesToUse.map(renderServiceItem)}
+        </div> */}
 
         <div className="flex justify-center mt-10">
-          <Button 
+          <Button
             className="bg-green-600 text-white px-6 py-2 rounded-lg"
             onClick={() => navigate("/eServices", { state: { ministry, loading } })}
           >

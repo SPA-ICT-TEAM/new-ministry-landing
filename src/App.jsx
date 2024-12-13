@@ -6,7 +6,7 @@ import { Projects } from "./Pages/Projects/Projects";
 import { ContactUs } from "./Pages/ContactUs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./pages/HomePage";
 import { UserProvider } from "./UserContext";
 import { DomainProvider } from "./DomainContext";
 import { ProjectProvider } from "./ProjectContext";
