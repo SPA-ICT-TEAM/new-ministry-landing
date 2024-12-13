@@ -31,7 +31,7 @@ export const NewsInfo = () => {
           style={{ backgroundImage: `url(${selectedNews.image || logo})` }}
         ></div>
       </div>
-      <div className="container mx-auto p-5 pt-0 text-black relative h-fit mt-14 lg:mt-24 ">
+      <div className="container mx-auto p-5 pt-0 text-black mt-14 lg:mt-24 ">
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-10">
           <div className="w-full flex justify-center items-start gap-1 col-span-9">
             <div className="shadow-2xl p-8 bg-white w-full rounded-t-xl h-[640px] overflow-y-scroll">
@@ -55,7 +55,7 @@ export const NewsInfo = () => {
             </div>
           </div>
 
-          <div className="col-span-3">
+          <div className="col-span-3 hidden lg:block">
             <div>
               <h1 className="font-bold text-2xl">Similar News</h1>
               <div className="my-3">
@@ -85,9 +85,9 @@ export const NewsInfo = () => {
             </div>
           </div>
         </div>
-        <div className="my-10 lg:mb-36">
+      </div>
+      <div className="my-10 lg:mb-36">
         <LatestNews ministry={ministryLatest} loading={loading} />
-        </div>
       </div>
     </div>
   );
