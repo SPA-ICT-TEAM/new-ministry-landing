@@ -6,6 +6,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import LatestNews from "../../components/LatestNews";
 import { Hero } from "../../components/About/Hero";
 import Image from "../../assets/news_default.jpg";
+import RecentNews from "../../components/RecentNews";
 
 export const NewsInfo = () => {
   const { ministry: ministryLatest, loading } = useContext(UserContext);
@@ -85,9 +86,13 @@ export const NewsInfo = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="my-10 lg:mb-36">
-        <LatestNews ministry={ministryLatest} loading={loading} />
+        <div className="my-10 lg:mb-36">
+          <Hero
+            title="Latest News"
+            text="Stay updated with the latest developments and insights from around the state. Explore our curated news articles to keep you informed and ahead."
+          />
+          <RecentNews ministry={ministry} ministryNews={ministryNews} />
+        </div>
       </div>
     </div>
   );
