@@ -9,7 +9,8 @@ import { UserContext } from "../../UserContext";
 export const News = () => {
   const location = useLocation();
   const { ministry, loading } = location.state || { ministry: null };
-  const { ministry: ministryNews, loading: isLoading } = useContext(UserContext);
+  const { ministry: ministryNews, loading: isLoading } =
+    useContext(UserContext);
 
   if (loading) {
     return <SplashLoader />;

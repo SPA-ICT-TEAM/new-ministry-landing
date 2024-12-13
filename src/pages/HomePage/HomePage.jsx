@@ -6,6 +6,7 @@ import Roadmap from "../../components/Roadmap";
 import Services from "../../components/Services";
 import { UserContext } from "../../UserContext";
 import SplashLoader from "../../components/SplashLoader";
+import LatestNews from "../../components/LatestNews";
 
 
 const HomePage = () => {
@@ -21,6 +22,7 @@ const HomePage = () => {
       <Roadmap ministry={ministry} loading={loading} />
       <Benefits ministry={ministry} loading={loading} />
       <Services ministry={ministry} loading={loading} />
+      <LatestNews ministry={ministry} loading={loading} />
       <Faq ministry={ministry} loading={loading} />
     </>
   );
