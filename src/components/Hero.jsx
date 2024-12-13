@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
 
 const Hero = ({ ministry }) => {
   const parallaxRef = useRef(null);
@@ -26,9 +27,9 @@ const Hero = ({ ministry }) => {
 
   // Example slider images - replace with your actual images
   const sliderImages = [
-    './image1.jpg',
-    './news_default.jpg',
-    './landing_default.jpg',
+    "./image1.jpg",
+    "./news_default.jpg",
+    "./landing_default.jpg",
     // Add more images as needed
   ];
 
@@ -51,27 +52,28 @@ const Hero = ({ ministry }) => {
                 }}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-end pb-20 text-center">
-                  <h1 className="h1 text-[#bcd149] mb-6 relative">
-                    {ministry?.heroDetails?.title}
-                    <img
-                      src={curve}
-                      className="absolute top-full left-1/2 transform -translate-x-1/2 w-[200px] xl:-mt-2"
-                      width={200}
-                      height={28}
-                      alt="Curve"
-                    />
-                  </h1>
-
-                  <p className="body-1 max-w-3xl mx-auto mb-6 text-white lg:mb-8">
-                    {ministry?.heroDetails?.subtitle}
-                  </p>
-
-                  <Button
-                    className="!text-green-700 font-extrabold bg-white"
-                    onClick={() => navigate("/about-us", { state: { ministry } })}
+                  <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    {ministry?.heroDetails?.button_text}
-                  </Button>
+                    <h1 className="h1 text-[#bcd149] mb-6 relative">
+                      {ministry?.heroDetails?.title}
+                    </h1>
+
+                    <p className="body-1 max-w-3xl mx-auto mb-6 text-white lg:mb-8">
+                      {ministry?.heroDetails?.subtitle}
+                    </p>
+
+                    <Button
+                      className="!text-green-700 font-extrabold bg-white"
+                      onClick={() =>
+                        navigate("/about-us", { state: { ministry } })
+                      }
+                    >
+                      {ministry?.heroDetails?.button_text}
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </div>
