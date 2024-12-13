@@ -3,7 +3,9 @@ import { useContext } from "react";
 import { UserContext } from "../../UserContext";
 import logo from "../../assets/logo.png";
 import { RiArrowRightSLine } from "react-icons/ri";
-import Button from "../../components/Button";
+import { NewsContent } from "../../components/News/NewsContent";
+import { Hero } from "../../components/About/Hero";
+import Image from "../../assets/news_default.jpg";
 
 export const NewsInfo = () => {
   const { id } = useParams();
@@ -28,21 +30,66 @@ export const NewsInfo = () => {
           style={{ backgroundImage: `url(${selectedNews.image || logo})` }}
         ></div>
       </div>
-      <div className="container mx-auto p-5 pt-0 text-black relative h-[600px]">
-        <div className="left-0 w-full flex absolute justify-center items-center md:-mt-16 -mt-11 flex-col gap-1">
-     
-          <div className="shadow-2xl p-8 bg-white w-full md:w-[70%] rounded-t-xl h-[640px] overflow-y-scroll">
-          <div className="flex px-3 md:px-0 text-green-600 items-center w-full md:w-[70%] gap-3">
-            <Link to="/" className="cursor-pointer hover:text-green-800">Home</Link>
-            <RiArrowRightSLine />
-            <Link to="/news" className="cursor-pointer hover:text-green-800">News</Link>
-            <RiArrowRightSLine />
-            <h1 className="cursor-pointer">{selectedNews.title}</h1>
+      <div className="container mx-auto p-5 pt-0 text-black relative h-fit mt-14 lg:mt-24 ">
+        <div className="grid lg:grid-cols-12 gap-5 lg:gap-10">
+          <div className="w-full flex justify-center items-start gap-1 col-span-9">
+            <div className="shadow-2xl p-8 bg-white w-full rounded-t-xl h-[640px] overflow-y-scroll">
+              <div className="flex px-3 md:px-0 text-green-600 items-center w-full md:w-[70%] gap-3">
+                <Link to="/" className="cursor-pointer hover:text-green-800">
+                  Home
+                </Link>
+                <RiArrowRightSLine />
+                <Link
+                  to="/news"
+                  className="cursor-pointer hover:text-green-800"
+                >
+                  News
+                </Link>
+                <RiArrowRightSLine />
+                <h1 className="cursor-pointer">{selectedNews.title}</h1>
+              </div>
+
+              <h2 className="text-2xl font-extrabold">{selectedNews.title}</h2>
+              <h3 className="mt-2 font-extralight">{selectedNews.content}</h3>
+            </div>
           </div>
 
-            <h2 className="text-2xl font-extrabold">{selectedNews.title}</h2>
-            <h3 className="mt-2 font-extralight">{selectedNews.content}</h3>
+          <div className="col-span-3">
+            <div>
+              <h1 className="font-bold text-2xl">Similar News</h1>
+              <div className="my-3">
+                <img
+                  src={Image}
+                  alt="news"
+                  className="w-full h-full object-cover"
+                />
+                <p>
+                  Latest News Content Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quos.
+                </p>
+              </div>
+              <hr />
+              <div className="my-3">
+                <img
+                  src={Image}
+                  alt="news"
+                  className="w-full h-full object-cover"
+                />
+                <p>
+                  Latest News Content Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quos.
+                </p>
+              </div>
+              <hr />
+            </div>
           </div>
+        </div>
+        <div className="my-10 lg:mb-36">
+          <Hero
+            title="Latest News"
+            text="Stay updated with the latest developments and insights from around the state. Explore our curated news articles to keep you informed and ahead."
+          />
+          <NewsContent ministry={ministry} ministryNews={ministryNews} />
         </div>
       </div>
     </div>

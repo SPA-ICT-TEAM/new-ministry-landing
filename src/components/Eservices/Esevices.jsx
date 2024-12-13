@@ -78,7 +78,7 @@ export const EServices = ({ ministry }) => {
             Paid-Services
           </div>
         </div>
-        <div className="flex flex-wrap bg-white rounded-3xl px-6 py-10 gap-2 justify-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
           {ministry?.services?.length > 0 ? (
             ministry?.services?.map((item) => (
               <Card
