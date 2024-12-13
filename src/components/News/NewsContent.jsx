@@ -11,7 +11,7 @@ export const NewsContent = ({ ministry, ministryNews }) => {
   };
 
   return (
-    <div className="flex flex-wrap bg-white rounded-3xl px-10 py-10 gap-10 mb-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
       {newss?.length > 0 ? (
         newss?.map((item) => (
           <Card

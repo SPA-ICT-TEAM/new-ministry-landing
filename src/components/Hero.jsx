@@ -46,8 +46,8 @@ const Hero = ({ ministry }) => {
               <div
                 className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${ministry?.heroDetails?.hero_image || landingDefault})`
-                  // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${image})`,
+                  // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${ministry?.heroDetails?.hero_image || landingDefault})`
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${image})`,
                 }}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-end pb-20 text-center">
