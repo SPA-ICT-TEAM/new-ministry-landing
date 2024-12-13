@@ -136,5 +136,5 @@
 
 .swiper {
   height: 450px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
