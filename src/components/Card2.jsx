@@ -47,7 +47,7 @@ const Card = ({
 
   return (
     <div
-      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat w-full bg-cover ${
+      className={`block relative p-0.5 border border-green-500 rounded-3xl bg-no-repeat w-full bg-cover overflow-hidden ${
         routeType.isProject ? "h-[30rem]" : ""
       } ${
         routeType.isNews || routeType.isServicePage ? "w-full" : "w-[300px]"
@@ -86,7 +86,7 @@ const Card = ({
         )}
 
         {trimmedTitle && !routeType.isNews && (
-          <h5 className="h5 mb-5 mt-14">{trimmedTitle}</h5>
+          <h5 className="h5 mb-5 mt-60">{trimmedTitle}</h5>
         )}
         {trimmedText && !routeType.isNews && (
           <p className="body-2 mb-6 text-n-3">{trimmedText}</p>

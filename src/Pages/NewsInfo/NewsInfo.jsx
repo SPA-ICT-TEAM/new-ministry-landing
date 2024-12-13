@@ -6,6 +6,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { NewsContent } from "../../components/News/NewsContent";
 import { Hero } from "../../components/About/Hero";
 import Image from "../../assets/news_default.jpg";
+import RecentNews from "../../components/RecentNews";
 
 export const NewsInfo = () => {
   const { id } = useParams();
@@ -89,7 +90,7 @@ export const NewsInfo = () => {
             title="Latest News"
             text="Stay updated with the latest developments and insights from around the state. Explore our curated news articles to keep you informed and ahead."
           />
-          <NewsContent ministry={ministry} ministryNews={ministryNews} />
+          <RecentNews ministry={ministry} ministryNews={ministryNews} />
         </div>
       </div>
     </div>
