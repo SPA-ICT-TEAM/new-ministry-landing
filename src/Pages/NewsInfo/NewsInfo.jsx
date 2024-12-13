@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { UserContext } from "../../UserContext";
 import logo from "../../assets/logo.png";
 import { RiArrowRightSLine } from "react-icons/ri";
-import { NewsContent } from "../../components/News/NewsContent";
+import LatestNews from "../../components/LatestNews";
 import { Hero } from "../../components/About/Hero";
 import Image from "../../assets/news_default.jpg";
 
 export const NewsInfo = () => {
+  const { ministry: ministryLatest, loading } = useContext(UserContext);
   const { id } = useParams();
   console.log("Selected news ID:", id);
   const { ministry } = location.state || { ministry: null };
@@ -85,11 +86,7 @@ export const NewsInfo = () => {
           </div>
         </div>
         <div className="my-10 lg:mb-36">
-          <Hero
-            title="Latest News"
-            text="Stay updated with the latest developments and insights from around the state. Explore our curated news articles to keep you informed and ahead."
-          />
-          <NewsContent ministry={ministry} ministryNews={ministryNews} />
+        <LatestNews ministry={ministryLatest} loading={loading} />
         </div>
       </div>
     </div>
