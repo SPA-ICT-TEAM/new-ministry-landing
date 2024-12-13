@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { NewsContent } from "../../components/News/NewsContent";
 import { Hero } from "../../components/About/Hero";
+import Image from "../../assets/news_default.jpg";
 
 export const NewsInfo = () => {
   const { id } = useParams();
@@ -29,9 +30,9 @@ export const NewsInfo = () => {
           style={{ backgroundImage: `url(${selectedNews.image || logo})` }}
         ></div>
       </div>
-      <div className="container mx-auto p-5 pt-0 text-black relative h-fit mt-10">
+      <div className="container mx-auto p-5 pt-0 text-black relative h-fit mt-14 lg:mt-24 ">
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-10">
-          <div className="w-full flex justify-center items-center gap-1 col-span-9">
+          <div className="w-full flex justify-center items-start gap-1 col-span-9">
             <div className="shadow-2xl p-8 bg-white w-full rounded-t-xl h-[640px] overflow-y-scroll">
               <div className="flex px-3 md:px-0 text-green-600 items-center w-full md:w-[70%] gap-3">
                 <Link to="/" className="cursor-pointer hover:text-green-800">
@@ -55,11 +56,35 @@ export const NewsInfo = () => {
 
           <div className="col-span-3">
             <div>
-              <h1>Similar News</h1>
+              <h1 className="font-bold text-2xl">Similar News</h1>
+              <div className="my-3">
+                <img
+                  src={Image}
+                  alt="news"
+                  className="w-full h-full object-cover"
+                />
+                <p>
+                  Latest News Content Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quos.
+                </p>
+              </div>
+              <hr />
+              <div className="my-3">
+                <img
+                  src={Image}
+                  alt="news"
+                  className="w-full h-full object-cover"
+                />
+                <p>
+                  Latest News Content Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quisquam, quos.
+                </p>
+              </div>
+              <hr />
             </div>
           </div>
         </div>
-        <div className="my-10">
+        <div className="my-10 lg:mb-36">
           <Hero
             title="Latest News"
             text="Stay updated with the latest developments and insights from around the state. Explore our curated news articles to keep you informed and ahead."
