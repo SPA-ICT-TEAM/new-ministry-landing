@@ -89,7 +89,7 @@ const Card = ({
           <h5 className="h5 mb-5 mt-60">{trimmedTitle}</h5>
         )}
         {trimmedText && !routeType.isNews && (
-          <p className="body-2 mb-6 text-n-3">{trimmedText}</p>
+          <p className="body-2 mb-6 text-n-3">{trimmedText}</p> 
         )}
 
         <div className="flex items-center mt-auto justify-center">
