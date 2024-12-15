@@ -59,7 +59,7 @@ export const NewsInfo = () => {
           <div className="col-span-3 hidden lg:block">
             <div>
               <h1 className="font-bold text-2xl">Similar News</h1>
-              <div className="my-3">
+              <div className="my-3 border-1 rounded-lg shadow-lg p-3">
                 <img
                   src={Image}
                   alt="news"
@@ -70,8 +70,7 @@ export const NewsInfo = () => {
                   adipisicing elit. Quisquam, quos.
                 </p>
               </div>
-              <hr />
-              <div className="my-3">
+              <div className="my-3 border-1 rounded-lg shadow-lg p-3">
                 <img
                   src={Image}
                   alt="news"
@@ -82,7 +81,6 @@ export const NewsInfo = () => {
                   adipisicing elit. Quisquam, quos.
                 </p>
               </div>
-              <hr />
             </div>
           </div>
         </div>
